@@ -1,0 +1,159 @@
+"use client";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { motion } from "framer-motion";
+
+// Dummy images
+const images = [
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1661700152890-931fb04588e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1455133332007-a0956e4fde21?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1705417272217-490f4511abeb?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+];
+
+// Dummy features
+const features = [
+  {
+    title: "AI Task Prioritization",
+    description: "Automatically sorts tasks based on urgency, deadlines, and workload.",
+    image: images[0],
+  },
+  {
+    title: "Smart Deadline Suggestions",
+    description: "Recommends optimal deadlines by analyzing team capacity in real-time.",
+    image: images[1],
+  },
+  {
+    title: "Real-Time Collaboration",
+    description: "Team chat, file sharing, and comments — all in one workspace.",
+    image: images[2],
+  },
+  {
+    title: "Predictive Progress Tracking",
+    description: "Identifies bottlenecks and predicts delays using AI insights.",
+    image: images[3],
+  },
+  {
+    title: "Custom Workflows",
+    description: "Automate your team’s process with intuitive, flexible workflows.",
+    image: images[4],
+  },
+];
+
+export default function ProductDemoPage() {
+  return (
+    <Box sx={{ bgcolor: "#0f0f1f", color: "white", py: { xs: 6, md: 10 } }}>
+      <Container maxWidth="lg">
+        {/* Intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography variant="h3" fontWeight="bold" mb={2} color="primary">
+            Explore Task Master
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 4, maxWidth: 700 }}>
+            Task Master is your intelligent task management solution designed to simplify collaboration,
+            optimize productivity, and empower your team with powerful AI features.
+          </Typography>
+        </motion.div>
+
+        {/* Product Images */}
+        <Grid container spacing={3} mb={6}>
+          {images.map((src, idx) => (
+            <Grid item xs={12} sm={6} md={4} key={idx}>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card
+                  sx={{
+                    background: "#1a1a40",
+                    borderRadius: 3,
+                    overflow: "hidden",
+                    boxShadow: 4,
+                  }}
+                >
+                  <CardMedia component="img" height="200" image={src} alt={`product-${idx}`} />
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+
+        {/* Features Section */}
+        <Typography variant="h4" fontWeight="bold" mb={3}>
+          Key Features
+        </Typography>
+        <Grid container spacing={4} mb={6}>
+          {features.map((feature, i) => (
+            <Grid item xs={12} md={6} key={i}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card sx={{ display: "flex", bgcolor: "#1c1c3d", borderRadius: 3, boxShadow: 3 }}>
+                  <CardMedia
+                    component="img"
+                    sx={{ width: 120, height: 120, objectFit: "cover" }}
+                    image={feature.image}
+                    alt={feature.title}
+                  />
+                  <CardContent>
+                    <Typography variant="h6" color="primary" gutterBottom>
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body2" color="white">
+                      {feature.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+
+        {/* Differentiator Section */}
+        <Typography variant="h4" fontWeight="bold" mb={2}>
+          What Makes Task Master Different?
+        </Typography>
+        <Typography variant="body1" mb={3} sx={{ maxWidth: 800 }}>
+          Unlike typical tools, Task Master delivers an intelligent experience backed by automation and real-time collaboration. Here's what sets it apart:
+        </Typography>
+        <List>
+          {[
+            "AI-based real-time prioritization and smart scheduling",
+            "Built-in team chat, comments, and file sharing",
+            "Automation rules and custom workflows",
+            "Predictive delay tracking before it happens",
+          ].map((point, idx) => (
+            <ListItem key={idx} disablePadding>
+              <ListItemIcon sx={{ color: "primary.main" }}>
+                <CheckCircleIcon />
+              </ListItemIcon>
+              <ListItemText primary={point} />
+            </ListItem>
+          ))}
+        </List>
+      </Container>
+    </Box>
+  );
+}
