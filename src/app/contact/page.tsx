@@ -29,7 +29,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Facebook, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
 
 const faqs = [
   {
@@ -308,39 +307,6 @@ const handleSubmit = async () => {
                         >
                           fintech@fincoopers.in
                         </Link>
-
-                        <Box display="flex" gap={1}>
-                          <IconButton
-                              size="small"
-                              sx={{ color: "white", "&:hover": { color: "primary.main" } }}
-                            >
-                              <Facebook />
-                            </IconButton>
-                            <IconButton
-                                size="small"
-                                sx={{ color: "white", "&:hover": { color: "primary.main" } }}
-                              >
-                                <Twitter />
-                              </IconButton>
-                              <IconButton
-                                size="small"
-                                sx={{
-                                  color: "white",
-                                  "&:hover": {
-                                      color: "primary.main",
-                                  },
-                                }}
-                              >
-                                <LinkedIn />
-                              </IconButton>
-                        
-                              <IconButton
-                                  size="small"
-                                  sx={{ color: "white", "&:hover": { color: "primary.main" } }}
-                              >
-                                <Instagram />
-                              </IconButton>
-                          </Box>
                         <Typography variant="body2" sx={{ mt: 0.8, fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.7)' }}>
                           Our team is ready to assist you via email
                         </Typography>

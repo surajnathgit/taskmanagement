@@ -64,10 +64,11 @@ const HeroSection = () => {
         >
           <Grid item xs={12} md={7}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
+            initial={{ opacity: 0, scale: 1.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true }}
+          >
               <Typography
                 variant="body1"
                 sx={{

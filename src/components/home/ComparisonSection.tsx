@@ -72,7 +72,7 @@ const ComparisonSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             fontWeight="bold"
             gutterBottom
             sx={{ color: theme.palette.primary.main,}}

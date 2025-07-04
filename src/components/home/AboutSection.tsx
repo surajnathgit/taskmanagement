@@ -24,14 +24,14 @@ const AboutSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             fontWeight="bold"
             sx={{ color: theme.palette.primary.main, mb: 4, }}
           >
             About Task Master
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 6, opacity: 0.9, textAlign: "justify", wordBreak: "break-word", }}>
+          <Typography variant="body1" sx={{ mb: 6, opacity: 0.9, wordBreak: "break-word", }}>
             Task Master is a modern project management platform built for high-performing
             teams. It empowers users to organize work, collaborate effectively, and deliver
             results on time — all through a smart, AI-enhanced interface. Whether you’re a

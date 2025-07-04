@@ -15,16 +15,6 @@ import { motion } from "framer-motion";
 const WhyChooseSection = () => {
   const theme = useTheme();
 
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.4,
-      },
-    },
-  };
-
   return (
     <Box
       sx={{
@@ -44,10 +34,9 @@ const WhyChooseSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             fontWeight="bold"
             gutterBottom
-            // sx={{ color: "#7C3AED", textAlign: "center" }}
             sx={{ color: theme.palette.primary.main,}}
 
           >
@@ -91,8 +80,13 @@ const WhyChooseSection = () => {
                     background: "rgba(255, 255, 255, 0.05)",
                     borderRadius: 3,
                     px: 2,
-                    py: 2,
+                    py: 2.5,
                     height: "100%",
+                    borderLeft: "5px solid #4E36FF", 
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "flex-start",
+                    textAlign: "left",
                   }}
                 >
                   <Typography variant="body1" sx={{ color: "white" }}>
@@ -103,7 +97,7 @@ const WhyChooseSection = () => {
             ))}
           </Grid>
           </motion.div>
-
+          
           {/*Testimonial */}
           <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.95 }}

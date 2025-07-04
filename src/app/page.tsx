@@ -1,4 +1,3 @@
-// import WhyChooseSection from '@/components/home/WhyChooseSection';
 import { Box } from '@mui/material';
 import dynamic from 'next/dynamic';
 

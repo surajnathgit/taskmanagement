@@ -109,8 +109,6 @@ const AboutSection = () => {
               </motion.div>
             </Grid>
           </Grid>
-
-          
         </motion.div>
       </Container>
     </Box>

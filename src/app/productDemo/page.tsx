@@ -1,240 +1,3 @@
-// "use client";
-// import React from "react";
-// import {
-//   Box,
-//   Container,
-//   Typography,
-//   Grid,
-//   Paper,
-//   Card,
-//   CardContent,
-//   useTheme,
-// } from "@mui/material";
-// import { motion } from "framer-motion";
-
-// // Dummy feature data
-// const features = [
-//   {
-//     title: "AI-Powered Task Prioritization",
-//     desc: "Automatically organizes tasks based on urgency, dependencies, and workload — so your team always knows what to focus on.",
-//     img: "/images/feature-prioritization.png",
-//   },
-//   {
-//     title: "Smart Deadline Suggestions",
-//     desc: "Uses real-time data to suggest achievable deadlines for each task, improving delivery rates and reducing deadline stress.",
-//     img: "/images/feature-deadlines.png",
-//   },
-//   {
-//     title: "Real-Time Collaboration",
-//     desc: "Built-in chat, mentions, file sharing, and task comments ensure your team communicates clearly within the platform.",
-//     img: "/images/feature-collaboration.png",
-//   },
-//   {
-//     title: "Milestone & Goal Tracking",
-//     desc: "Design personalized workflows using automation rules like task assignments, reminders, and status changes.",
-//     img: "/images/feature-workflow.png",
-//   },
-//   {
-//     title: "Predictive Progress Tracking",
-//     desc: "Get early warnings for delays or project slowdowns with AI-powered progress prediction.",
-//     img: "/images/feature-tracking.png",
-//   },
-//   {
-//     title: "Integrated File Management",
-//     desc: "Upload, organize, and access project files directly within each task or discussion thread — no external tools needed.",
-//   },
-// ];
-
-// const ProductDemoPage = () => {
-//   const theme = useTheme();
-
-//   return (
-//     <Box
-//       sx={{ backgroundColor: "#0F0F1E", color: "white", overflow: "hidden" }}
-//     >
-//       {/* Product Overview */}
-//       <Container sx={{ py: { xs: 8, md: 12 }, textAlign: "center" }}>
-//         <motion.div
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <Typography
-//             variant="h3"
-//             fontWeight={700}
-//             color="primary"
-//             gutterBottom
-//           >
-//             Explore Task Master
-//           </Typography>
-//           <Typography variant="body1" sx={{ maxWidth: 700, mx: "auto" }}>
-//             Task Master is your intelligent task management solution, designed
-//             to help teams work smarter, not harder. From smart deadline
-//             suggestions to real-time collaboration, everything is built for
-//             efficiency.
-//           </Typography>
-//         </motion.div>
-//       </Container>
-
-//       {/* Product Image Grid */}
-//       <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 6, md: 8 } }}>
-//         <motion.div
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <Grid container spacing={3}>
-//             {[
-//               "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//               "https://plus.unsplash.com/premium_photo-1661700152890-931fb04588e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//               "https://images.unsplash.com/photo-1455133332007-a0956e4fde21?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//               "https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//               "https://images.unsplash.com/photo-1705417272217-490f4511abeb?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//             ].map((src, idx) => (
-//               <Grid item xs={12} sm={6} md={idx === 0 ? 12 : 6} key={idx}>
-//                 <motion.div
-//                   whileHover={{ scale: 1.03 }}
-//                   transition={{ type: "spring", stiffness: 300 }}
-//                   style={{
-//                     borderRadius: "12px",
-//                     overflow: "hidden",
-//                     boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-//                   }}
-//                 >
-//                   <img
-//                     src={src}
-//                     alt={`Task Master Screenshot ${idx + 1}`}
-//                     style={{
-//                       width: "100%",
-//                       height: "100%",
-//                       objectFit: "cover",
-//                       display: "block",
-//                     }}
-//                   />
-//                 </motion.div>
-//               </Grid>
-//             ))}
-//           </Grid>
-//         </motion.div>
-//       </Box>
-
-//       {/* Features Section */}
-//       <Container sx={{ py: { xs: 8, md: 12 } }}>
-//         <Typography
-//           variant="h4"
-//           fontWeight="bold"
-//           textAlign="center"
-//           sx={{ color: "#A78BFA", mb: 4 }}
-//         >
-//           Key Features
-//         </Typography>
-
-//         <Grid container spacing={4} sx={{ mb: 10 }}>
-//           {features.map((feature, index) => (
-//             <Grid item xs={12} sm={6} md={4} key={index}>
-//               <motion.div
-//                 initial={{ opacity: 0, y: 30 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 transition={{ delay: index * 0.1, duration: 0.6 }}
-//                 viewport={{ once: true }}
-//               >
-//                 <Card
-//                   sx={{
-//                     background: "rgba(255,255,255,0.05)",
-//                     borderRadius: 3,
-//                     height: "100%",
-//                     p: 2,
-//                   }}
-//                 >
-//                   <CardContent>
-//                     <Typography
-//                       variant="h6"
-//                       fontWeight="bold"
-//                       sx={{ color: "#A78BFA", mb: 1 }}
-//                     >
-//                       {feature.title}
-//                     </Typography>
-//                     <Typography
-//                       variant="body2"
-//                       sx={{ opacity: 0.9, color: "white" }}
-//                     >
-//                       {feature.desc}
-//                     </Typography>
-//                   </CardContent>
-//                 </Card>
-//               </motion.div>
-//             </Grid>
-//           ))}
-//         </Grid>
-//       </Container>
-
-//       {/* What Sets Us Apart */}
-//       <Container sx={{ py: { xs: 8, md: 12 }, textAlign: "center" }}>
-//         <Typography variant="h4" fontWeight={700} color="primary" mb={4}>
-//           Why Task Master?
-//         </Typography>
-//         <Typography variant="body1" sx={{ maxWidth: 750, mx: "auto", mb: 4 }}>
-//           Unlike other tools, Task Master uses AI to predict bottlenecks and
-//           optimize team workload in real-time — no more manual juggling.
-//         </Typography>
-//         <Grid container spacing={4} justifyContent="center">
-//           {[
-//             "AI predictions for deadlines and delays",
-//             "Fully customizable workflows",
-//             "Built-in collaboration (chat, file share)",
-//             "No third-party tools needed",
-//           ].map((point, i) => (
-//             <Grid item xs={12} sm={6} md={3} key={i}>
-//               <Paper
-//                 sx={{
-//                   background: "#1F1F3D",
-//                   color: "white",
-//                   p: 3,
-//                   borderRadius: 2,
-//                   height: "100%",
-//                 }}
-//               >
-//                 <Typography variant="body1">{`✔️ ${point}`}</Typography>
-//               </Paper>
-//             </Grid>
-//           ))}
-//         </Grid>
-//       </Container>
-
-//       {/* Video Demo Section */}
-//       <Box sx={{ py: { xs: 8, md: 12 }, textAlign: "center" }}>
-//         <Typography variant="h4" fontWeight={700} color="primary" mb={4}>
-//           Watch Task Master in Action
-//         </Typography>
-//         <Box
-//           sx={{
-//             maxWidth: "900px",
-//             mx: "auto",
-//             aspectRatio: "16 / 9",
-//             borderRadius: 3,
-//             overflow: "hidden",
-//             boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
-//           }}
-//         >
-//           <iframe
-//             width="100%"
-//             height="100%"
-//             src="https://www.youtube.com/embed/O8ivm7403rk"
-//             title="Task Master Demo"
-//             frameBorder="0"
-//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//             allowFullScreen
-//           />
-//         </Box>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default ProductDemoPage;
-
 "use client";
 import React from "react";
 import {
@@ -354,7 +117,10 @@ const ProductDemoPage = () => {
                   fontWeight: 700,
                   mb: 2,
                   fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
-                  color: theme.palette.primary.main,
+                  background: "linear-gradient(90deg, #4E36FF, #FF6B6B)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+
                 }}
               >
                 Explore Task Master
@@ -719,6 +485,12 @@ const ProductDemoPage = () => {
                     p: 3,
                     mb: 3,
                     overflow: "hidden",
+                    borderLeft: "5px solid #4E36FF", 
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 4px 20px rgba(78, 54, 255, 0.2)',
+                    },
                   }}
                 >
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>

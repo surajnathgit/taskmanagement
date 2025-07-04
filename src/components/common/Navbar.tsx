@@ -21,9 +21,9 @@ import ScheduleDemoModal from "./ScheduleDemoModal";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/#about" },
+  // { name: "About", href: "/#about" },
   { name: "Product Demo", href: "/productDemo" },
-  { name: "Contact Us", href: "/contact" },
+  // { name: "Contact Us", href: "/contact" },
 ];
 
 function Navbar() {
