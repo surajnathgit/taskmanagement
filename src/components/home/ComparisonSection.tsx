@@ -4,56 +4,16 @@ import {
   Box,
   Container,
   Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Grid,
   Paper,
   useTheme
 } from "@mui/material";
 import { motion } from "framer-motion";
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 
 const ComparisonSection = () => {
     const theme = useTheme();
-    
-    const data = [
-    {
-    feature: "AI task prioritization",
-    taskMaster:
-        "Ranks tasks using AI based on urgency, deadlines, and workload.",
-      comp1:
-        "Manual prioritization only.",
-      comp2:
-        "Some automation, no real-time AI.",
-  },
-  {
-    feature: "Smart deadlines",
-    taskMaster: "Suggests deadlines based on workload and team capacity.",
-    comp1: "Manual deadline entry.",
-    comp2: "No dynamic suggestions.",
-  },
-  {
-    feature: "Workflow automation",
-    taskMaster: "Fully customizable workflows with automation rules.",
-    comp1: "Limited templates, low flexibility.",
-    comp2: "Basic workflows, no advanced automation.",
-  },
-  {
-    feature: "Team collaboration",
-    taskMaster: "Built-in chat, file sharing, and comments.",
-    comp1: "Requires third-party tools.",
-    comp2: "Limited sharing and poor integration.",
-  },
-  {
-    feature: "Progress tracking",
-     taskMaster: "Forecasts delays using predictive analytics.",
-    comp1: "Manual tracking only.",
-    comp2: "No predictive insights.",
-  },
-  ];
 
   return (
     <Box
@@ -61,85 +21,10 @@ const ComparisonSection = () => {
         background: "linear-gradient(135deg, #1a1a40 0%, #2d1b69 100%)",
         color: "white",
         py: { xs: 8, md: 12 },
-        textAlign: "center",
         overflow: "hidden",
       }}
     >
       <Container maxWidth="lg">
-        {/* <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <Typography
-            variant="h2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ color: theme.palette.primary.main,}}
-          >
-            How Task Master Compares
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              opacity: 0.85,
-              mb: 4,
-              textAlign: "center",
-              maxWidth: 800,
-              mx: "auto",
-            }}
-          >
-            See how Task Master stacks up against the competition. With built-in intelligence,
-            flexible automation, and unmatched usability — it's the smart choice for modern teams.
-          </Typography>
-          </motion.div>
-          
-          <motion.div
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                  >
-          <TableContainer
-            component={Paper}
-            sx={{
-              background: "rgba(255, 255, 255, 0.05)",
-              borderRadius: 3,
-              overflowX: "auto",
-            }}
-          >
-            <Table>
-              <TableHead sx={{ backgroundColor: "#381e5e"}}>
-                <TableRow  >
-                  <TableCell sx={{ color: "white", fontWeight: "bold",fontSize: "16px", width: "20%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>Feature</TableCell>
-                  <TableCell sx={{ color: "white", fontWeight: "bold",fontSize: "16px", width: "25%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>
-                    Task Master
-                  </TableCell>
-                  <TableCell sx={{ color: "white", fontWeight: "bold",fontSize: "16px", width: "25%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>Competitor 1</TableCell>
-                  <TableCell sx={{ color: "white", fontWeight: "bold",fontSize: "16px", width: "25%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>Competitor 2</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {data.map((row, index) => (
-                  <TableRow key={index} sx={{
-                      "&:hover": {
-                        backgroundColor: "rgba(78, 54, 255, 0.05)",
-                      },
-                      transition: "background 0.3s ease",
-                    }}>
-                    <TableCell sx={{ color: "white", textAlign: "center",fontWeight: "bold", borderRight: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>{row.feature}</TableCell>
-                    <TableCell sx={{ color: "white", borderRight: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>{row.taskMaster}</TableCell>
-                    <TableCell sx={{ color: "white", borderRight: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>{row.comp1}</TableCell>
-                    <TableCell sx={{ color: "white", height: "100%", borderBottom: "1px solid rgba(255,255,255,0.1)", }}>{row.comp2}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </motion.div> */}
-
           <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -150,7 +35,7 @@ const ComparisonSection = () => {
             variant="h2"
             fontWeight="bold"
             gutterBottom
-            sx={{ color: theme.palette.primary.main,}}
+            sx={{ color: theme.palette.primary.main, textAlign: 'center'}}
           >
              Transformation With Task Master
           </Typography>
@@ -168,38 +53,47 @@ const ComparisonSection = () => {
           An enterprise-ready solution that goes beyond task tracking — optimized for productivity and clarity.
           </Typography>
           </motion.div>
-          
-          <motion.div
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                  >
+        
 <Grid container spacing={4}>
   {/* Before Implementation */}
   <Grid item xs={12} md={6}>
+    <motion.div
+    initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  whileHover={{
+    y: -8,
+    boxShadow: "0px 10px 30px rgba(78, 54, 255, 0.2)",
+    transition: { duration: 0.3 },
+  }}
+  transition={{ duration: 0.8, delay: 0.1 }}
+  viewport={{ once: true }}
+  >
     <Paper
-      sx={{
-        bgcolor: 'rgba(211, 47, 47, 0.05)',
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: 3,
-        p: 4,
-        height: "100%",
-        boxShadow: "0 0 10px rgba(255, 0, 0, 0.1)",
-                textAlign: "left"
-      }}
-    >
-      <Typography variant="h6" fontWeight="bold" sx={{ color: "#ff4c4c", mb: 1 }}>
-        ⚠️ Before Implementation
-      </Typography>
-      <Typography variant="subtitle2" sx={{ mb: 2, color: "rgba(255,255,255,0.7)" }}>
+  sx={{
+    background: "linear-gradient(135deg, rgba(78,54,255,0.08), rgba(78,54,255,0.05))",
+    border: "1px solid rgba(78,54,255,0.25)",
+    borderRadius: 3,
+    p: 3,
+    height: "100%",
+    boxShadow: "0 4px 20px rgba(78,54,255,0.1)",
+    overflow: 'hidden',
+    textAlign: "left"
+  }}
+>
+  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+  <WarningAmberRoundedIcon sx={{ color: "#4E36FF", mr: 1, fontSize: 28 }} />
+  <Typography variant="h5" fontWeight="bold" sx={{ color: "#4E36FF" }}>
+    Before Implementation
+  </Typography>
+</Box>
+      <Typography variant="subtitle2" sx={{ mb: 2, opacity: 0.7, color:'white',textAlign: 'left' }}>
         Manual Project Coordination
       </Typography>
 
-      <Typography fontWeight="bold" sx={{ color: "white", mb: 1 }}>
+      <Typography fontWeight="bold" sx={{ mb: 1, color: "white" }}>
         Current Challenges:
       </Typography>
-      <ul style={{ color: "rgba(255,255,255,0.9)", paddingLeft: "1.4em", marginBottom: "1.5em" }}>
+      <ul style={{ paddingLeft: "1.2em", marginBottom: "1.5em", color: "rgba(255,255,255,0.85)" }}>
         {[
           "Email-based task assignments",
           "Spreadsheet project tracking",
@@ -208,19 +102,36 @@ const ComparisonSection = () => {
           "Missed deadlines and deliverables",
           "Inefficient resource allocation",
         ].map((item, i) => (
-          <li key={i} style={{ marginBottom: 6 }}>{item}</li>
+          <motion.li
+    key={i}
+    style={{
+      marginBottom: 6,
+      listStyleType: "disc",
+      color: "rgba(255,255,255,0.85)",
+      cursor: "default",
+    }}
+    whileHover={{
+      x: 6,
+      color: "#FFFFFF",
+      transition: { type: "tween", duration: 0.2 },
+    }}
+  >
+{item}</motion.li>
         ))}
       </ul>
 
-      <Box sx={{
-        backgroundColor: "rgba(255, 0, 0, 0.08)",
-        borderRadius: 2,
-        p: 2.5,
-      }}>
-        <Typography fontWeight="bold" sx={{ color: "#ff4c4c", mb: 1 }}>
+      <Box
+        sx={{
+          backgroundColor: "rgba(120, 87, 255, 0.07)",
+          borderRadius: 2,
+          p: 2.5,
+          overflow: 'hidden',
+        }}
+      >
+        <Typography fontWeight="bold" sx={{ mb: 1, color: '#4E36FF' }}>
           Key Pain Points:
         </Typography>
-        <ul style={{ color: "rgba(255,255,255,0.9)", paddingLeft: "1.4em" }}>
+        <ul style={{ paddingLeft: "1.2em", color: "rgba(255,255,255,0.85)" }}>
           {[
             "30% of projects miss deadlines",
             "Limited visibility into team capacity",
@@ -232,32 +143,48 @@ const ComparisonSection = () => {
         </ul>
       </Box>
     </Paper>
+    </motion.div>
   </Grid>
 
   {/* After Implementation */}
   <Grid item xs={12} md={6}>
+     <motion.div
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    whileHover={{
+    y: -8,
+    boxShadow: "0px 10px 30px rgba(124, 58, 237, 0.2)",
+    transition: { duration: 0.3 },
+  }}
+    transition={{ duration: 0.8, delay: 0.3 }}
+    viewport={{ once: true }}
+  >
     <Paper
-      sx={{
-        bgcolor: 'rgba(18, 21, 63, 0.05)',
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: 3,
-        p: 4,
-        height: "100%",
-        boxShadow: "0 0 10px rgba(0, 255, 100, 0.08)",
-        textAlign: "left"
-      }}
-    >
-      <Typography variant="h6" fontWeight="bold" sx={{ color: "#00e676", mb: 1 }}>
-        ✅ After Implementation
-      </Typography>
-      <Typography variant="subtitle2" sx={{ mb: 2, color: "rgba(255,255,255,0.7)" }}>
+  sx={{
+    background: "linear-gradient(135deg, rgba(124,58,237,0.08), rgba(124,58,237,0.05))",
+    border: "1px solid rgba(124,58,237,0.25)",
+    borderRadius: 3,
+    p: 3,
+    height: "100%",
+    boxShadow: "0 4px 20px rgba(124,58,237,0.1)",
+    textAlign: "left",
+    overflow: 'hidden',
+  }}
+>
+  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+  <CheckCircleOutlineRoundedIcon sx={{ color: "#7C3AED", mr: 1, fontSize: 28 }} />
+  <Typography variant="h5" fontWeight="bold" sx={{ color: "#7C3AED" }}>
+    After Implementation
+  </Typography>
+</Box>
+      <Typography variant="subtitle2" sx={{ mb: 2, opacity: 0.7, color:'white' }}>
         AI-Optimized Task Management
       </Typography>
 
-      <Typography fontWeight="bold" sx={{ color: "white", mb: 1 }}>
+      <Typography fontWeight="bold" sx={{ mb: 1, color: "white" }}>
         New Capabilities:
       </Typography>
-      <ul style={{ color: "rgba(255,255,255,0.9)", paddingLeft: "1.4em", marginBottom: "1.5em" }}>
+      <ul style={{ paddingLeft: "1.2em", marginBottom: "1.5em", color: "rgba(255,255,255,0.85)" }}>
         {[
           "Automated task assignment and prioritization",
           "Real-time project tracking and updates",
@@ -266,19 +193,36 @@ const ComparisonSection = () => {
           "Proactive deadline management",
           "Intelligent resource allocation",
         ].map((item, i) => (
-          <li key={i} style={{ marginBottom: 6 }}>{item}</li>
+          <motion.li
+    key={i}
+    style={{
+      marginBottom: 6,
+      listStyleType: "disc",
+      color: "rgba(255,255,255,0.85)",
+      cursor: "default",
+    }}
+    whileHover={{
+      x: 6,
+      color: "#FFFFFF",
+      transition: { type: "tween", duration: 0.2 },
+    }}
+  >
+{item}</motion.li>
         ))}
       </ul>
 
-      <Box sx={{
-        backgroundColor: "rgba(0, 255, 100, 0.06)",
-        borderRadius: 2,
-        p: 2.5,
-      }}>
-        <Typography fontWeight="bold" sx={{ color: "#00e676", mb: 1 }}>
+      <Box
+        sx={{
+          backgroundColor: "rgba(97, 195, 255, 0.07)",
+          borderRadius: 2,
+          p: 2.5,
+          overflow: 'hidden',
+        }}
+      >
+        <Typography fontWeight="bold" sx={{ mb: 1, color: "#7C3AED" }}>
           Achieved Improvements:
         </Typography>
-        <ul style={{ color: "rgba(255,255,255,0.9)", paddingLeft: "1.4em" }}>
+        <ul style={{ paddingLeft: "1.2em", color: "rgba(255,255,255,0.85)" }}>
           {[
             "95% on-time project delivery",
             "Complete team capacity visibility",
@@ -290,9 +234,9 @@ const ComparisonSection = () => {
         </ul>
       </Box>
     </Paper>
+    </motion.div>
   </Grid>
 </Grid>
-        </motion.div>
       </Container>
     </Box>
   )

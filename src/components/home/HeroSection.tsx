@@ -9,7 +9,7 @@ import {
   Stack,
   useTheme,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import ParticleBackground from "../animations/ParticleBackground";
 
 const HeroSection = () => {
@@ -78,7 +78,7 @@ const HeroSection = () => {
                   color: "#4E36FF",
                 }}
               >
-                Task Master
+                <span style={{color: 'white'}}>Task</span> Master
               </Typography>
             </motion.div>
 

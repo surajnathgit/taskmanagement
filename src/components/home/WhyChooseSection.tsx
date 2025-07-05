@@ -188,6 +188,12 @@ const WhyChooseSection = () => {
 
           {/* Efficiency Gains & Impact – Square Cards */}
           <Box sx={{ mt: 8 }}>
+            <motion.div
+                        initial={{ opacity: 0, y: -40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                      >
             <Typography
               variant="h4"
               fontWeight="bold"
@@ -195,14 +201,29 @@ const WhyChooseSection = () => {
             >
               Efficiency Gains & Impact
             </Typography>
+            </motion.div>
 
             <Grid container spacing={2} justifyContent="center">
               {impactData.map((item, index) => (
                 <Grid item xs={6} sm={3} key={index} sx={{ display: 'flex' }}>
+                  <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 40, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.6,
+          delay: 0.2 + index * 0.2, 
+          ease: "easeOut"
+        }}
+        style={{ width: '100%' }}
+      >
                   <Card
                     sx={{
-                      background: "rgba(255,255,255,0.04)",
-                      borderRadius: 2,
+                      background: "rgba(255, 255, 255, 0.05)",        
+backdropFilter: "blur(6px)",                    
+WebkitBackdropFilter: "blur(6px)", 
+                      borderRadius: 3,
                       width: '100%',
                       height: "100%",
                       display: "flex",
@@ -210,15 +231,17 @@ const WhyChooseSection = () => {
                       justifyContent: "flex-start",
                       alignItems: "flex-start",
                       px: 1,
-                      pt: 5, // space for stat badge
+                      pt: 1,
                       pb: 1,
                       position: "relative",
                       textAlign: "left",
                       color: "white",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
                       overflow: "hidden",
-                      transition: "transform 0.3s ease",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
                       '&:hover': {
                         transform: "translateY(-5px)",
+                        boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
                       },
                       // Animated left border using ::before
                       '&::before': {
@@ -239,44 +262,35 @@ const WhyChooseSection = () => {
                     }}
                   >
                     <CardContent sx={{ flexGrow: 1 }}>
-                    {/* Stat badge */}
-                    <Box
+                      {/* Stat */}
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
                       sx={{
-                        position: "absolute",
-                        top: 12,
-                        left: 12,
-                        background: "linear-gradient(90deg, #4E36FF, #7C3AED)",
-                        px: 1.5,
-                        py: 0.6,
-                        borderRadius: 2,
-                        fontSize: "0.75rem",
-                        fontWeight: 600,
-                        color: "white",
-                        whiteSpace: "nowrap",
-                        maxWidth: "calc(100% - 24px)",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        transition: "transform 0.3s ease",
-                        '&:hover': {
-                        background: "rgba(225, 220, 220, 0.12)",
-                        border: "1px solid rgba(170, 166, 166, 0.04) "
-                      },
-                      }}
-                    >
-                      {item.stat}
-                    </Box>
+                        color: "#B39DFF", // light violet text
+                        mb: 2,
+                        lineHeight: 1.2,
+                        textAlign: 'center'
+                      }}>
+                    {item.stat}
+                    </Typography>
 
                     {/* Title */}
-                    <Typography variant="subtitle1" fontWeight="bold" sx={{ mb: 0.5, mt: 1 }}>
+                    <Typography variant="subtitle1" fontWeight="bold" sx={{  fontSize: "1.05rem",                     // Line 1
+    mb: 0.5,
+    lineHeight: 1.4, textAlign: 'center'  }}>
                       {item.title}
                     </Typography>
 
                     {/* Subtitle */}
-                    <Typography variant="body2" sx={{ opacity: 0.8, mt: 1 }}>
+                    <Typography variant="body2" sx={{ opacity: 0.85,
+    color: "#E0E0E0",                          // Line 1 (instead of default white)
+    lineHeight: 1.5, textAlign:'center' }}>
                       {item.subtitle}
                     </Typography>
                     </CardContent>
                   </Card>
+                </motion.div>
                 </Grid>
               ))}
             </Grid>
