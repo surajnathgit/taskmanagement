@@ -10,6 +10,12 @@ import {
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AlarmIcon from '@mui/icons-material/Alarm';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
 const features = [
   {
@@ -36,6 +42,14 @@ const features = [
     title: "Integrated File Management",
     desc: "Upload, organize, and access project files directly within each task or discussion thread-no external tools needed."
   },
+];
+
+const uniquePoints = [
+  "AI-powered deadline prediction for better planning.",
+  "Smart task prioritization that adapts to your workflow.",
+  "Real-time team collaboration and resource tracking.",
+  "Integrated automation to reduce manual workload.",
+  "Custom workflows tailored to team size and industry.",
 ];
 
 const ProductDemoPage = () => {
@@ -459,46 +473,79 @@ const ProductDemoPage = () => {
               textAlign="center"
               sx={{ color: theme.palette.primary.main, mb: 4 }}
             >
-              What Makes Task Master Different?
+              What Sets Task Master Apart?
             </Typography>
           </motion.div>
 
           <Box sx={{ maxWidth: 900, mx: "auto" }}>
-            {[
-              "While other tools help you organize tasks, Task Master thinks ahead — using AI to suggest priorities, predict risks, and optimize deadlines.",
-              "Chat, share files, assign tasks, automate workflows — all in one seamless interface. Say goodbye to app-switching.",
-              "Whether you're a freelancer or an enterprise, you can build custom workflows using intuitive, no-code automation rules.",
-              "Get proactive alerts about potential delays before they happen. Task Master analyzes progress trends so you can act early.",
-              "Designed with simplicity in mind, your team can hit the ground running — no lengthy training sessions or steep learning curves required.",
-            ].map((item, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <Box
-                  key={index}
-                  sx={{
-                    background: "rgba(255,255,255,0.06)",
-                    borderRadius: 2,
-                    p: 3,
-                    mb: 3,
-                    overflow: "hidden",
-                    borderLeft: "5px solid #4E36FF", 
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 4px 20px rgba(78, 54, 255, 0.2)',
-                    },
-                  }}
-                >
-                  <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                    {item}
-                  </Typography>
-                </Box>
-              </motion.div>
-            ))}
+<Grid container spacing={3}>
+  {[
+    {
+      icon: <TipsAndUpdatesIcon sx={{fontSize: '45px'}} />,
+      title: "Thinks Ahead",
+      desc: "AI suggests priorities and predicts risks.",
+    },
+    {
+      icon: <AutoAwesomeIcon sx={{fontSize: '45px'}}/>,
+      title: "All-in-One",
+      desc: "Chat, share files, assign & automate tasks.",
+    },
+    {
+      icon: <SettingsIcon sx={{fontSize: '45px'}}/>,
+      title: "No-Code Rules",
+      desc: "Create workflows without writing code.",
+    },
+    {
+      icon: <AlarmIcon sx={{fontSize: '45px'}}/>,
+      title: "Risk Alerts",
+      desc: "Get notified of delays before they happen.",
+    },
+    {
+      icon: <RocketLaunchIcon sx={{fontSize: '45px'}}/>,
+      title: "Easy Onboarding",
+      desc: "Start fast with zero learning curve.",
+    },
+    {
+      icon: <AutoGraphIcon sx={{fontSize: '45px'}}/>,
+      title: "Scalable",
+      desc: "Grows with teams of any size.",
+    },
+  ].map((item, index) => (
+    <Grid item xs={12} sm={6} md={4} key={index}>
+      <Card
+        sx={{
+          background: "rgba(255, 255, 255, 0.05)",
+          borderRadius: 4,
+          p: 3,
+          height: "100%",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          '&:hover': {
+            transform: 'translateY(-5px)',
+            boxShadow: '0 6px 24px rgba(78, 54, 255, 0.2)',
+          },
+          '&:hover .title': {
+            color: "primary.main", 
+          },
+        }}
+      >
+        <Typography className="icon" mb={1} sx={{color: theme.palette.primary.main, transition: "all 0.3s ease",}}>
+          {item.icon}
+        </Typography>
+        <Typography className="title" variant="h6" fontWeight="600" color="white" gutterBottom>
+          {item.title}
+        </Typography>
+        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)" }}>
+          {item.desc}
+        </Typography>
+      </Card>
+    </Grid>
+  ))}
+</Grid>            
           </Box>
         </Container>
       </Box>

@@ -28,8 +28,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   /* background: linear-gradient(135deg, #ad5a5a 0%, #F5F5F5 100%); */
 }
 
