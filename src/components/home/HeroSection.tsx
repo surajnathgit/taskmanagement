@@ -14,14 +14,6 @@ import ParticleBackground from "../animations/ParticleBackground";
 
 const HeroSection = () => {
   const theme = useTheme();
-  // const [isVisible, setIsVisible] = useState(false);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsVisible(true);
-  //   }, 500);
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   return (
     <Box
@@ -75,7 +67,9 @@ const HeroSection = () => {
                   fontWeight: 800,
                   fontSize: { xs: "3rem", md: "3.8rem" },
                   mb: 3,
-                  color: "#4E36FF",
+                  background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                 }}
               >
                 <span style={{color: 'white'}}>Task</span> Master

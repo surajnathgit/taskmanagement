@@ -9,16 +9,7 @@ import {
   CardContent,
   useTheme,
 } from "@mui/material";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import GroupsIcon from "@mui/icons-material/Groups";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import HubIcon from "@mui/icons-material/Hub";
-import SyncIcon from "@mui/icons-material/Sync";
-import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import { motion } from "framer-motion";
-
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
@@ -36,74 +27,74 @@ const features = [
   {
     icon: <BorderColorOutlinedIcon sx={{fontSize: '45px'}} />,
     title: "Intuitive Task Creation with rich descriptions",
-    description:
-      "Quickly create tasks with detailed context using rich text, attachments, and tagging.",
+    description: "Quickly create tasks with detailed context using rich text, attachments, and tagging.",
+    bg: "linear-gradient(135deg, #4E36FF 0%, #7C3AED 100%)"
   },
   {
     icon: <GroupAddOutlinedIcon sx={{fontSize: '45px' }}/>,
     title: "Task Assignment & Delegation with notifications",
-    description:
-      "Assign tasks to team members with real-time notifications and role clarity.",
+    description: "Assign tasks to team members with real-time notifications and role clarity.",
+    bg: "linear-gradient(135deg, #FF6B6B, #FF8E53)"
   },
   {
     icon: <TrendingUpOutlinedIcon sx={{fontSize: '45px'}} />,
     title: "Progress Tracking with visual indicators",
-    description:
-      "Monitor task and project status through dynamic progress bars and visual cues.",
+    description: "Monitor task and project status through dynamic progress bars and visual cues.",
+    bg: "linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%)",
   },
   {
     icon: <NotificationsActiveOutlinedIcon sx={{fontSize: '45px'}}/>,
     title: "Automated Reminders & Notifications",
-    description:
-      "Never miss a deadline with intelligent, customizable reminders and alerts.",
+    description: "Never miss a deadline with intelligent, customizable reminders and alerts.",
+    bg: "linear-gradient(135deg, #7B61FF, #FF47B6)"
   },
   {
      icon: <DeviceHubOutlinedIcon sx={{fontSize: '45px'}}  />,
     title: "Dependencies Management with critical path",
-    description:
-      "Define and manage task dependencies while tracking the critical path impact.",
+    description: "Define and manage task dependencies while tracking the critical path impact.",
+    bg: "linear-gradient(135deg, #5C6BC0, #3949AB)"
   },
   {
     icon: <GradingOutlinedIcon sx={{fontSize: '45px'}} />,
     title: "Subtasks & Checklists for complex work",
-    description:
-      "Break down complex tasks into subtasks and actionable checklists for better control.",
+    description: "Break down complex tasks into subtasks and actionable checklists for better control.",
+    bg: "linear-gradient(135deg, #D63384, #E91E63)"
   },
   {
     icon: <ViewKanbanOutlinedIcon  sx={{fontSize: '45px'}}/>,
     title: "Kanban Boards/List Views for visualization",
-    description:
-      "Visualize workflows with drag-and-drop Kanban boards and flexible list views.",
+    description: "Visualize workflows with drag-and-drop Kanban boards and flexible list views.",
+    bg: "linear-gradient(135deg, #96CEB4, #4CAF50)"
   },
   {
      icon: <AccessTimeOutlinedIcon sx={{fontSize: '45px'}} />,
     title: "Time Tracking with detailed logs",
-    description:
-      "Track time spent on tasks with precision and generate detailed time logs.",
+    description: "Track time spent on tasks with precision and generate detailed time logs.",
+    bg: "linear-gradient(135deg, #F7931E, #FF9800)"
   },
   {
      icon: <ExtensionOutlinedIcon  sx={{fontSize: '45px'}}/>,
     title: "Project Integration capabilities",
-    description:
-      "Seamlessly integrate with popular tools to streamline your project ecosystem.",
+    description: "Seamlessly integrate with popular tools to streamline your project ecosystem.",
+    bg: "linear-gradient(135deg, #45B7D1, #2196F3)"
   },
   {
      icon: <TipsAndUpdatesOutlinedIcon sx={{fontSize: '45px'}}/>,
     title: "AI-Powered Prioritization based on deadlines",
-    description:
-      "Let AI intelligently reorder tasks based on urgency, workload, and deadlines.",
+    description: "Let AI intelligently reorder tasks based on urgency, workload, and deadlines.",
+    bg: "linear-gradient(135deg,  #AB47BC, #8E24AA)"
   },
   {
      icon: <EventAvailableOutlinedIcon sx={{fontSize: '45px'}}/>,
     title: "AI-Driven Deadline Prediction",
-    description:
-      "Get smart deadline forecasts powered by past trends and team productivity.",
+    description: "Get smart deadline forecasts powered by past trends and team productivity.",
+    bg: "linear-gradient(135deg,  #26C6DA, #00ACC1)"
   },
   {
     icon: <GroupsOutlinedIcon sx={{fontSize: '45px'}}/>,
     title: "Team Workload Balancing",
-    description:
-      "Automatically balance tasks across the team to optimize efficiency and avoid overload.",
+    description: "Automatically balance tasks across the team to optimize efficiency and avoid overload.",
+    bg: "linear-gradient(135deg,  #512DA8, #673AB7)"
   },
 ];
 
@@ -229,7 +220,7 @@ const KeyFeaturesSection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Key Features
+              Powerful Features
             </Typography>
             <Box 
               sx={{ 
@@ -244,7 +235,6 @@ const KeyFeaturesSection = () => {
             <Typography
               variant="body1"
               sx={{
-                // maxWidth: 580,
                 mx: "auto",
                 fontSize: { xs: '1rem', sm: '1.3rem', md: '1.4rem'},
                 fontWeight: 600,
@@ -261,10 +251,14 @@ const KeyFeaturesSection = () => {
           {features.map((feature, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + Math.floor(index / 3) * 0.2,
+                    ease: "easeOut",
+                  }}
                 style={{ width: "100%" }}
               >
                 <Card
@@ -302,16 +296,20 @@ const KeyFeaturesSection = () => {
                       >
               <Box
                 sx={{
+                  background: feature.bg,
+                  width: 56,
+                  height: 56,
+                  borderRadius: 2,
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "flex-start",
-                  mb: 2,
-                  color: theme.palette.primary.main,
-                  transition: "transform 0.3s ease",
-                  transformOrigin: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 4px 20px rgba(144, 11, 255, 0.35)",
+                  mb: 2,    
                 }}
               >
+                <Typography sx={{mt:1, color:'white'}}>
                 {feature.icon}
+                </Typography>
               </Box>
               </motion.div>
               <Typography

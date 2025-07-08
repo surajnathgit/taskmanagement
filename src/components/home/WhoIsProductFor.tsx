@@ -10,6 +10,12 @@ import {
   useTheme
 } from "@mui/material";
 import { motion } from "framer-motion";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import PhotoCameraBackOutlinedIcon from '@mui/icons-material/PhotoCameraBackOutlined';
+import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
+import PublicIcon from '@mui/icons-material/Public';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 
 const WhoIsProductFor = () => {
   const theme = useTheme();
@@ -18,26 +24,32 @@ const WhoIsProductFor = () => {
     {
   title: "Startups & Growing Teams",
   desc: "Keeps teams organized, on time, and scaling fast.",
+  icon: <RocketLaunchIcon fontSize="medium" />,
 },
 {
   title: "Agencies & Creative Firms",
   desc: "Simplifies collaboration, sharing, and project tracking.",
+    icon: <PhotoCameraBackOutlinedIcon fontSize="medium" />,
 },
 {
   title: "Enterprise Project Managers",
   desc: "Manages workflows and automates tasks at scale.",
+    icon: <BusinessCenterOutlinedIcon fontSize="medium" />,
 },
 {
   title: "Remote & Hybrid Teams",
   desc: "Enables real-time collaboration across time zones.",
+    icon: <PublicIcon fontSize="medium" />,
 },
 {
   title: "Freelancers & Consultants",
   desc: "All-in-one space for client work and deadlines.",
+    icon: <HandshakeOutlinedIcon fontSize="medium" />,
 },
 {
   title: "Community Groups",
   desc: "Helps organize volunteers and track impact.",
+    icon: <Diversity3Icon fontSize="medium" />,
 }
   ];
 
@@ -62,7 +74,10 @@ const WhoIsProductFor = () => {
             variant="h2"
             fontWeight="bold"
             gutterBottom
-            sx={{ color: theme.palette.primary.main}}
+            sx={{               background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+}}
           >
             Who Is Our Product For?
           </Typography>
@@ -77,40 +92,60 @@ const WhoIsProductFor = () => {
               opacity: 0.85,
             }}
           >
-            Task Master is built for modern teams of all shapes and sizes — from individual
-            freelancers to enterprise-scale operations. Here’s who benefits most:
+            Whether you're a startup founder, a project manager, or a remote team member — Task Master helps you stay focused, aligned, and in control.
           </Typography>
 
           <Grid container spacing={4}>
             {segments.map((segment, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
+              <Grid item xs={12} sm={6} md={4} key={i} sx={{display: "flex"}}>
                 <motion.div
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8 }}
                           viewport={{ once: true }}
+                          style={{width: '100%'}}
                         >
                   <Card
                     sx={{
                       background: "rgba(255,255,255,0.05)",
                       borderRadius: 3,
-                      minHeight: 140,
+                      height: '100%',
+                      width: '100%',
                       display: "flex",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      flexDirection: "column",
+                      // alignItems: "flex-start",
+                      px: 1,
+                      '&:hover': {
+                        boxShadow: '0 6px 24px rgba(10, 10, 10, 0.34)',
+                      },
+
                     }}
                   >
-                    <CardContent>
+                    <CardContent sx={{flexGrow: 1}}>
+                      <Box
+                      sx={{
+                        background: "linear-gradient(135deg, #4E36FF, #900BFF)",
+                        width: 38,
+                        height: 38,
+                        borderRadius: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 4px 12px rgba(144, 11, 255, 0.35)",
+                        mb:2
+                      }}
+                    >
+                      <Typography sx={{ color: "white", mt:1 }}>{segment.icon}</Typography>
+                    </Box>
                       <Typography
                         variant="h6"
                         fontWeight="bold"
                         gutterBottom
-                        sx={{ color: "#A78BFA" }}
+                        sx={{ color: "white", textAlign: 'left' }}
                       >
                         {segment.title}
                       </Typography>
-                      <Typography variant="body2" sx={{ opacity: 0.9, color: "white" }}>
+                      <Typography variant="body2" sx={{ opacity: 0.9, color: "white", textAlign:'left' }}>
                         {segment.desc}
                       </Typography>
                     </CardContent>

@@ -659,7 +659,6 @@ const handleSubmit = async () => {
                               transition={{ delay: index * 0.1, duration: 0.6 }}
                               viewport={{ once: true }}
                               whileHover={{ y: -5 }}
-                              // style={{ width: '100%'}}
                             >
               <Box
               sx={{

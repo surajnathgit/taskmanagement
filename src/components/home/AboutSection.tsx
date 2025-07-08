@@ -26,8 +26,13 @@ const AboutSection = () => {
           <Typography
             variant="h2"
             fontWeight="bold"
-            sx={{ color: theme.palette.primary.main, mb: 4, }}
-          >
+            sx={{
+              background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              mb: 4
+            }}
+           >
             About Task Master
           </Typography>
 

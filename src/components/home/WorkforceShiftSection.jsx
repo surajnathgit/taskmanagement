@@ -53,7 +53,10 @@ const WorkforceShiftSection = () => {
                       variant="h2"
                       fontWeight="bold"
                       gutterBottom
-                      sx={{ color: theme.palette.primary.main, textAlign: 'center'}}
+                      sx={{    background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                       textAlign: 'center'}}
                     >
             Role Shifts Powered by Task Master
           </Typography>
@@ -64,22 +67,31 @@ const WorkforceShiftSection = () => {
           </Typography>
         </motion.div>
 
+{/* Roles reduces or replaced*/}
+    <Box sx={{ mb: 10, px:{xs: 0, md: 1}, overflow:'hidden' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-    <Box sx={{ mb: 10, px:{xs: 0, md: 1}, overflow:'hidden' }}>
     <Typography variant="h4" fontWeight="bold" sx={{ mb: 3, color: theme.palette.secondary.main }}>
       Roles Reduced or Replaced
     </Typography>
+    </motion.div>
+
     <Grid container spacing={2}>
       {rolesReduced.map((item, idx) => (
         <Grid item xs={12} sm={6} md={4} key={idx} sx={{ display: 'flex' }}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + idx * 0.2,
+                    ease: "easeOut",
+                  }}
             style={{ borderRadius: '16px', width: '100%' }}       
           >
           <Card
@@ -127,25 +139,32 @@ const WorkforceShiftSection = () => {
       ))}
     </Grid>
   </Box>
-</motion.div>
 
 {/* New Roles Introduced */}
+  <Box sx={{ mb: 10, px:{xs: 0, md: 1}, overflow:'hidden' }}>
 <motion.div
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.2 }}
   viewport={{ once: true }}
 >
-  <Box sx={{ mb: 10, px:{xs: 0, md: 1}, overflow:'hidden' }}>
     <Typography variant="h4" fontWeight="bold" sx={{ mb: 3, color: theme.palette.primary.main }}>
       New Roles Introduced
     </Typography>
+    </motion.div>
+
     <Grid container spacing={2}>
       {newRoles.map((item, idx) => (
         <Grid item xs={12} sm={6} md={4} key={idx} sx={{ display: 'flex' }}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + idx * 0.2,
+                    ease: "easeOut",
+                  }}
             style={{ borderRadius: '16px', width: '100%' }}       
           >
           <Card
@@ -192,25 +211,32 @@ const WorkforceShiftSection = () => {
       ))}
     </Grid>
   </Box>
-</motion.div>
 
 {/* Net Impact Summary (No Chip) */}
+  <Box sx={{ mb: 4, mt: 4, px:{xs: 0, md: 1}, overflow:'hidden' }}>
 <motion.div
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.4 }}
   viewport={{ once: true }}
 >
-  <Box sx={{ mb: 4, mt: 4, px:{xs: 0, md: 1}, overflow:'hidden' }}>
     <Typography variant="h4" fontWeight="bold" sx={{ mb: 3, color: theme.palette.secondary.main }}>
       Net Impact Summary
     </Typography>
+            </motion.div>
+
     <Grid container spacing={2}>
       {netImpact.map((item, index) => (
         <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex' }}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + index * 0.2,
+                    ease: "easeOut",
+                  }}
             style={{ borderRadius: '16px', width: '100%' }}       
           >
           <Card
@@ -258,7 +284,6 @@ const WorkforceShiftSection = () => {
       ))}
     </Grid>
   </Box>
-        </motion.div>
       </Container>
     </Box>
   );

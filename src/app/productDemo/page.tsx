@@ -16,40 +16,39 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import {AutoAwesomeMotion,AccessTime,Forum,TrackChanges,Troubleshoot,FolderCopy} from "@mui/icons-material";
 
 const features = [
   {
-    title: "AI-Powered Task Prioritization",
-    desc: "Automatically organizes tasks based on urgency, dependencies, and workload — so your team always knows what to focus on.",
+    title: "Smart Prioritization",
+    desc: "AI auto-ranks tasks by urgency and workload.",
+    icon: <AutoAwesomeMotion />,
   },
   {
-    title: "Smart Deadline Suggestions",
-    desc: "Uses real-time data to suggest achievable deadlines for each task, improving delivery rates and reducing deadline stress.",
+    title: "Deadline Insights",
+    desc: "AI suggests realistic deadlines in real time.",
+    icon: <AccessTime />,
   },
   {
-    title: "Real-Time Collaboration",
-    desc: "Built-in chat, mentions, file sharing, and task comments ensure your team communicates clearly within the platform.",
+    title: "Built-in Collaboration",
+    desc: "Chat, comment, and share—all in one place.",
+    icon: <Forum />,
   },
   {
-    title: "Milestone & Goal Tracking",
-    desc: "Design personalized workflows using automation rules like task assignments, reminders, and status changes.",
+    title: "Milestone Tracking",
+    desc: "Stay aligned with clear goals and checkpoints.",
+    icon: <TrackChanges />,
   },
   {
-    title: "Predictive Progress Tracking",
-    desc: "Get early warnings for delays or project slowdowns with AI-powered progress prediction.",
+    title: "Predictive Progress",
+    desc: "Get early warnings for delays or risks.",
+    icon: <Troubleshoot />,
   },
   {
-    title: "Integrated File Management",
-    desc: "Upload, organize, and access project files directly within each task or discussion thread-no external tools needed."
+    title: "File Management",
+    desc: "Upload and access files right in your tasks.",
+    icon: <FolderCopy />,
   },
-];
-
-const uniquePoints = [
-  "AI-powered deadline prediction for better planning.",
-  "Smart task prioritization that adapts to your workflow.",
-  "Real-time team collaboration and resource tracking.",
-  "Integrated automation to reduce manual workload.",
-  "Custom workflows tailored to team size and industry.",
 ];
 
 const ProductDemoPage = () => {
@@ -329,7 +328,7 @@ const ProductDemoPage = () => {
           </Grid>
 
           {/* Video Demo Section */}
-          <Box sx={{ mt: 10, mb: 8 }}>
+          <Box sx={{ mt:12, mb: 12}}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -337,11 +336,13 @@ const ProductDemoPage = () => {
               viewport={{ once: true }}
             >
               <Typography
-                variant="h4"
+                variant="h3"
                 fontWeight="bold"
                 textAlign="center"
                 mb={2}
-                color="primary"
+                sx={{background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"}}
               >
                 See Task Master in Action
               </Typography>
@@ -395,6 +396,7 @@ const ProductDemoPage = () => {
           </Box>
 
           {/* Key Features Section */}
+          <Box sx={{ mt:12, mb: 12}}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -402,65 +404,96 @@ const ProductDemoPage = () => {
             viewport={{ once: true }}
           >
             <Typography
-              variant="h4"
+              variant="h3"
               fontWeight="bold"
               textAlign="center"
-              sx={{ color: theme.palette.primary.main, mb: 4 }}
+              sx={{               background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+               mb: 2 }}
             >
               Key Features
             </Typography>
+            <Typography variant="body1"
+                textAlign="center"
+                mb={4}
+                sx={{ maxWidth: 700, mx: "auto" }}>
+                  Your solution to Smarter Task Management
+                </Typography>
           </motion.div>
 
-          <Grid container spacing={4} sx={{ mb: 10 }}>
-            {features.map((feature, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                key={index}
-                sx={{ display: "flex" }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  viewport={{ once: true }}
-                  style={{ width: "100%" }}
-                >
-                  <Card
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      background: "rgba(255,255,255,0.05)",
-                      borderRadius: 3,
-                      p: 2,
-                    }}
-                  >
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography
-                        variant="h6"
-                        fontWeight="bold"
-                        sx={{ color: "#A78BFA", mb: 1 }}
-                      >
-                        {feature.title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ opacity: 0.9, color: "white" }}
-                      >
-                        {feature.desc}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
+<Grid container spacing={4} sx={{ mb: 10 }}>
+  {features.map((feature, index) => (
+    <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.1, duration: 0.4 }}
+        viewport={{ once: true }}
+        style={{ width: "100%" }}
+      >
+        <Card
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            background: "rgba(255,255,255,0.05)",
+            borderRadius: 3,
+            p: 3,
+            '&:hover': {
+            boxShadow: '0 6px 24px rgba(13, 25, 184, 0.34)',
+          },
+
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 2,
+              mb: 2.5,
+            }}
+          >
+            <Box
+              sx={{
+                background: "linear-gradient(135deg, #4E36FF, #900BFF)",
+                width: 38,
+                height: 38,
+                borderRadius: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 12px rgba(144, 11, 255, 0.35)",
+              }}
+            >
+              <Typography sx={{fontSize: 20, color: "#fff", mt:1 }}>
+              {feature.icon}
+              </Typography>
+            </Box>
+
+            <Typography
+              variant="h6"
+              fontWeight="bold"
+              sx={{ color: 'white' }}
+            >
+              {feature.title}
+            </Typography>
+          </Box>
+
+          {/* Description */}
+          <Typography variant="body2" sx={{ opacity: 0.9, color: "white" }}>
+            {feature.desc}
+          </Typography>
+        </Card>
+      </motion.div>
+    </Grid>
+  ))}
+</Grid>
+          </Box>
 
           {/* What Makes Us Different */}
+          <Box sx={{ mt:12, mb: 6}}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -468,84 +501,133 @@ const ProductDemoPage = () => {
             viewport={{ once: true }}
           >
             <Typography
-              variant="h4"
+              variant="h3"
               fontWeight="bold"
               textAlign="center"
-              sx={{ color: theme.palette.primary.main, mb: 4 }}
+              sx={{background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+               mb: 2 }}
             >
               What Sets Task Master Apart?
             </Typography>
+            <Typography
+                variant="body1"
+                textAlign="center"
+                mb={4}
+                sx={{ maxWidth: 700, mx: "auto" }}
+              >
+                Discover how Task Master goes beyond basic task management to simplify, automate, and elevate your workflow.
+            </Typography>
           </motion.div>
 
-          <Box sx={{ maxWidth: 900, mx: "auto" }}>
+          <Box sx={{ maxWidth: 900, mx: "auto",mb:4 }}>
 <Grid container spacing={3}>
   {[
     {
-      icon: <TipsAndUpdatesIcon sx={{fontSize: '45px'}} />,
+      icon: <TipsAndUpdatesIcon sx={{fontSize: '30px'}} />,
       title: "Thinks Ahead",
       desc: "AI suggests priorities and predicts risks.",
+      bg: "linear-gradient(135deg, #D63384, #E91E63)"
     },
     {
-      icon: <AutoAwesomeIcon sx={{fontSize: '45px'}}/>,
+      icon: <AutoAwesomeIcon sx={{fontSize: '30px'}}/>,
       title: "All-in-One",
       desc: "Chat, share files, assign & automate tasks.",
+      bg: "linear-gradient(135deg, #96CEB4, #4CAF50)"
     },
     {
-      icon: <SettingsIcon sx={{fontSize: '45px'}}/>,
+      icon: <SettingsIcon sx={{fontSize: '30px'}}/>,
       title: "No-Code Rules",
       desc: "Create workflows without writing code.",
+      bg: "linear-gradient(135deg, #FF6B6B, #FF8E53)"
     },
     {
-      icon: <AlarmIcon sx={{fontSize: '45px'}}/>,
+      icon: <AlarmIcon sx={{fontSize: '30px'}}/>,
       title: "Risk Alerts",
       desc: "Get notified of delays before they happen.",
+      bg: "linear-gradient(135deg,  #AB47BC, #8E24AA)"
     },
     {
-      icon: <RocketLaunchIcon sx={{fontSize: '45px'}}/>,
+      icon: <RocketLaunchIcon sx={{fontSize: '30px'}}/>,
       title: "Easy Onboarding",
       desc: "Start fast with zero learning curve.",
+      bg: "linear-gradient(135deg, #45B7D1, #2196F3)"
     },
     {
-      icon: <AutoGraphIcon sx={{fontSize: '45px'}}/>,
+      icon: <AutoGraphIcon sx={{fontSize: '30px'}}/>,
       title: "Scalable",
       desc: "Grows with teams of any size.",
+      bg: "linear-gradient(135deg, #7B61FF, #FF47B6)"
     },
   ].map((item, index) => (
-    <Grid item xs={12} sm={6} md={4} key={index}>
+    <Grid item xs={12} sm={6} md={4} key={index} sx={{display: 'flex'}}>
+      <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + Math.floor(index / 3) * 0.2,
+                    ease: "easeOut",
+                  }}
+      whileHover={{ scale: 1.03 }}
+      style={{width: "100%", transformOrigin: "center"}}
+    >
       <Card
+        elevation={2}
         sx={{
           background: "rgba(255, 255, 255, 0.05)",
-          borderRadius: 4,
-          p: 3,
-          height: "100%",
+          borderRadius: 5,
+          p: 1,
           textAlign: "center",
+          height: "100%",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
           '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: '0 6px 24px rgba(78, 54, 255, 0.2)',
+            boxShadow: '0 6px 24px rgba(10, 10, 10, 0.34)',
           },
-          '&:hover .title': {
-            color: "primary.main", 
-          },
+          '&:hover .description' : {
+            color: "white"
+          }
         }}
       >
-        <Typography className="icon" mb={1} sx={{color: theme.palette.primary.main, transition: "all 0.3s ease",}}>
+        <CardContent sx={{flexGrow: 1, display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          textAlign: "center"}}>
+        <Box sx={{
+          background: item.bg,
+          width: 50,
+          height: 50,
+          borderRadius: 2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mb: 2,
+          boxShadow: '0 4px 20px rgba(144, 11, 255, 0.35)',}}>
+        <Typography mb={1} sx={{color: 'white',mt:2,transition: "all 0.3s ease"}}>
           {item.icon}
         </Typography>
-        <Typography className="title" variant="h6" fontWeight="600" color="white" gutterBottom>
+        </Box>
+        <Typography variant="h6" fontWeight="600" color="white" gutterBottom sx={{transition:"all 0.3s ease"}}>
           {item.title}
         </Typography>
-        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)" }}>
+        <Typography className="description" variant="body2" sx={{ color: "rgba(255,255,255,0.8)" }}>
           {item.desc}
         </Typography>
+        </CardContent>
       </Card>
+      </motion.div>
     </Grid>
   ))}
 </Grid>            
+          </Box>
           </Box>
         </Container>
       </Box>

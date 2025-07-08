@@ -35,7 +35,9 @@ const ComparisonSection = () => {
             variant="h2"
             fontWeight="bold"
             gutterBottom
-            sx={{ color: theme.palette.primary.main, textAlign: 'center'}}
+            sx={{               background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent", textAlign: 'center'}}
           >
              Transformation With Task Master
           </Typography>
@@ -44,7 +46,7 @@ const ComparisonSection = () => {
             variant="body1"
             sx={{
               opacity: 0.85,
-              mb: 4,
+              mb: 6,
               textAlign: "center",
               maxWidth: 800,
               mx: "auto",
