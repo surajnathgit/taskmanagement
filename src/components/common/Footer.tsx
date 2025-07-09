@@ -98,7 +98,7 @@ const Footer = () => {
                   Home
                 </Typography>
               </Link>
-              <Link href="/#about" passHref style={{ textDecoration: "none" }}>
+              {/* <Link href="/#about" passHref style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body2"
                   color="grey.400"
@@ -106,7 +106,7 @@ const Footer = () => {
                 >
                   About Us
                 </Typography>
-              </Link>
+              </Link> */}
               <Link
                 href="/productDemo"
                 passHref
@@ -120,7 +120,7 @@ const Footer = () => {
                   Product Demo
                 </Typography>
               </Link>
-              <Link
+              {/* <Link
                 href="/"
                 passHref
                 style={{ textDecoration: "none" }}
@@ -132,7 +132,7 @@ const Footer = () => {
                 >
                   Contact Us
                 </Typography>
-              </Link>
+              </Link> */}
               {/* <Link href="/team" passHref style={{ textDecoration: 'none' }}>
                   <Typography variant="body2" color="grey.400" sx={{ '&:hover': { color: 'primary.main' } }}>
                     Team
@@ -244,7 +244,7 @@ const Footer = () => {
           flexWrap="wrap"
         >
           <Typography variant="body2" color="grey.500">
-            © {new Date().getFullYear()} Fincoopers Tech India Private Limited.
+            © {new Date().getFullYear()} Task Master.
             All rights reserved.
           </Typography>
           <Box display="flex" gap={3}>
