@@ -16,12 +16,54 @@ import {
   MenuItem,
 } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+const FieldStyles = {
+  '& .MuiOutlinedInput-root': {
+    borderRadius: 4,
+    backgroundColor: 'rgba(255, 255, 255, 0.07)', 
+    color: '#fff',
+    backdropFilter: 'blur(2px)',
+    transition: 'all 0.2s ease-in-out',
+
+    '& fieldset': {
+      borderColor: 'rgba(255, 255, 255, 0.2)',
+    },
+    '&:hover fieldset': {
+      borderColor: '#a08bff',
+    },
+    '&:hover': {
+      boxShadow: '0 0 6px rgba(160, 139, 255, 0.2)',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#c2b8ff',
+    },
+    '&.Mui-focused': {
+      boxShadow: '0 0 10px rgba(160, 139, 255, 0.25)',
+    },
+    '& input:-webkit-autofill': {
+      WebkitBoxShadow: 'rgba(255, 255, 255, 0.07)',
+      WebkitTextFillColor: '#fff',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
+    // '& input': {
+    //   color: '#fff',
+    // },
+    // '& svg': {
+    //   color: '#fff',
+    // },
+  },
+
+  '& .MuiInputLabel-root': {
+    color: 'rgba(255,255,255,0.6)',
+  },
+  '& label.Mui-focused': {
+    color: '#c2b8ff',
+  },
+  '& .MuiSelect-icon': {
+    color: '#fff',
+  },
+};
 
 interface ScheduleDemoModalProps {
   open: boolean;
@@ -29,9 +71,6 @@ interface ScheduleDemoModalProps {
 }
 
 const ScheduleDemoModal = ({ open, onClose }: ScheduleDemoModalProps) => {
-  // const [snackbarOpen, setSnackbarOpen] = useState(false);
-  // const [snackbarMessage, setSnackbarMessage] = useState("");
-  // const [snackbarSeverity, setSnackbarSeverity] = useState<"success" | "error">("success");
   const [loading, setLoading] = useState(false);
   const [successDialogOpen, setSuccessDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -137,16 +176,73 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <>
-<Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth >
+<Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth 
+PaperProps={{
+    sx: {
+       width: "750px", 
+      maxWidth: "90vw",
+      borderRadius: 5,
+      boxShadow: 6,
+      background: 'linear-gradient(to right top, #1b1466, #291b7a, #36228e, #432aa2, #5032b6)',
+      color: '#fff'
+    },
+  }}
+  componentsProps={{
+    backdrop: {
+      sx: {
+        backgroundColor: 'rgba(0, 0, 0, 0.69)',
+        backdropFilter: 'blur(10px)',
+      },
+    },
+  }} >
   <form onSubmit={handleSubmit}>
-      <DialogTitle>
-        <Typography variant="h6" fontWeight="bold" sx={{ color: "#4d36ff" }}>
-          Schedule a Demo
-        </Typography>
-      </DialogTitle>
-      <DialogContent dividers>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+      <DialogTitle sx={{pt:3}} >
+      <Box display="flex" alignItems="center">
+    <Box sx={{ flex: 1 }} />
+
+    {/* Centered Title */}
+    <Typography
+      variant="h4"
+      fontWeight="bold"
+      sx={{
+        fontSize: {xs: '1.25rem' ,sm: '1.75rem', md: '1.75rem' },
+        color: 'white',
+        textAlign: 'center',
+      }}
+    >
+      Schedule a Demo
+    </Typography>
+
+    {/* Close Icon */}
+    <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+      <Button
+        onClick={handleCancel}
+        sx={{
+          minWidth: 'auto',
+          p: 1,
+          borderRadius: 2,
+          background: 'transparent',
+          '&:hover': {
+            backgroundColor: '#5643e6',
+          },
+        }}
+      >
+        <CloseIcon sx={{ color: 'white' }} />
+      </Button>
+    </Box>
+  </Box>
+
+  {/* Subheading */}
+  <Typography
+    variant="body1"
+    sx={{ color: 'white', textAlign: 'center', mt: 1 }}
+  >
+    Let's schedule a personalized demo for your team
+  </Typography>      
+  </DialogTitle>
+      <DialogContent sx={{mt: 1}} dividers>
+        <Grid container spacing={3} sx={{pt:1}} >
+          <Grid item xs={12} sm={6} >
             <TextField
               label="Full Name"
               name="fullName"
@@ -154,6 +250,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -165,6 +263,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
+
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -176,6 +277,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
               inputProps={{
                 inputMode: "numeric",
                 maxLength: 10,
@@ -190,6 +293,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
+             
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -200,6 +306,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -211,6 +319,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleSelectChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
+
             >
               <MenuItem value="IT">IT</MenuItem>
               <MenuItem value="Finance">Finance</MenuItem>
@@ -230,6 +341,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 fullWidth
                 required
                 placeholder="Please specify"
+                variant="outlined"
+              sx={FieldStyles}
               />
             </Grid>
           )}
@@ -243,6 +356,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleSelectChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
             >
               <MenuItem value="1-10">1-10</MenuItem>
               <MenuItem value="11-50">11-50</MenuItem>
@@ -261,6 +376,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               onChange={handleChange}
               fullWidth
               required
+              variant="outlined"
+              sx={FieldStyles}
             >
             <MenuItem value="HR Conclave">HR Conclave</MenuItem>
             <MenuItem value="LinkedIn">LinkedIn</MenuItem>
@@ -275,38 +392,50 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <Checkbox
                   checked={formData.consent}
                   onChange={handleCheckboxChange}
-                  required
               />}
               label="I agree to be contacted by TaskMaster for demo and updates"
+              required
             />
           </Grid>
         </Grid>
       </DialogContent>
-      <DialogActions sx={{ px: 3, pb: 2 }}>
-        <Button onClick={handleCancel} sx={{color: '#900BFF'}}>
-          Cancel
-        </Button>
-        <Button 
-          variant="contained" 
-          type="submit" 
-          color="primary"
-          disabled={loading}
-          >
-          {loading ? (
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <CircularProgress size={18} sx={{ color: "#fff" }} />
-              <Typography variant="body2" sx={{ color: "#fff" }}>
-                Booking Demo...
-              </Typography>
-           </Box>
-        ) : (
-          "Book Demo"
-        )}
-        </Button>
+      <DialogActions sx={{ px: 3, pb: 4, pt:3 }}>
+        <Button
+  variant="contained"
+  type="submit"
+  fullWidth
+  disabled={loading}
+  sx={{
+    py: 1.6,
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    borderRadius: 4,
+    background: 'linear-gradient(to right, #7f00ff, #e100ff)', 
+    color: '#fff',
+    boxShadow: '0px 0px 12px rgba(128, 0, 255, 0.4)',
+    '&:hover': {
+      background: 'linear-gradient(to right, #7200e6, #c700e6)',
+      boxShadow: '0px 0px 16px rgba(128, 0, 255, 0.6)',
+    },
+  }}
+>
+  {loading ? (
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+      <CircularProgress size={18} sx={{ color: "#fff", fontWeight: 'bold' }} />
+      <Typography variant="body2" sx={{ color: "#fff", fontSize: '1.1rem', fontWeight: 'bold' }}>
+        Booking Demo...
+      </Typography>
+    </Box>
+  ) : (
+    "Book Demo"
+  )}
+</Button>
+
       </DialogActions>
       </form>
     </Dialog>
 
+      {/* Thank You Dialog  */}
       <Dialog 
       open={successDialogOpen} 
       onClose={() => setSuccessDialogOpen(false)}
@@ -314,7 +443,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     backdrop: {
       sx: {
         backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        backdropFilter: 'blur(6px)',
+        backdropFilter: 'blur(10px)',
       },
     },
   }}>

@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   Box,
   Container,
@@ -7,6 +8,8 @@ import {
   Button,
   Stack,
   Paper,
+  Card,
+  CardContent,
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
@@ -18,23 +21,28 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import LoopIcon from '@mui/icons-material/Loop';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import PublicIcon from "@mui/icons-material/Public";
+import SecurityIcon from "@mui/icons-material/Security";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import WorkIcon from "@mui/icons-material/Work";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const HeroSection = () => {
   const theme = useTheme();
-  
+
   const features = [
     {
-      icon: <TipsAndUpdatesIcon sx={{ fontSize: 32, color: theme.palette.primary.main }} />,
+      icon: <TipsAndUpdatesIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} />,
       title: "AI Prioritization",
       description: "Rank tasks smartly.",
     },
     {
-      icon: <AccessTimeIcon sx={{ fontSize: 32, color: theme.palette.secondary.main }} />,
+      icon: <AccessTimeIcon sx={{ fontSize: 24, color: theme.palette.secondary.main }} />,
       title: "Smart Deadlines",
       description: "Auto-suggest due dates.",
     },
     {
-      icon: <GroupsIcon sx={{ fontSize: 32, color: "#7F5BFF" }} />,
+      icon: <GroupsIcon sx={{ fontSize: 24, color: "#7F5BFF" }} />,
       title: "Collaboration",
       description: "Work as one team.",
     },
@@ -42,12 +50,12 @@ const HeroSection = () => {
 
     const animatedCards = [
     {
-      icon: <CheckCircleOutlineIcon sx={{ fontSize: 20, color: "#31b531" }} />,
+      icon: <CheckCircleOutlineIcon sx={{ fontSize: 20, color: "#02b8fa", fontWeight:'bold' }} />,
       label: "Tasks Completed",
       style: { top: 40, right: 25, background: "linear-gradient(135deg, #0be9b6, #0cbcf2)" },
     },
     {
-      icon: <HourglassEmptyIcon sx={{ fontSize: 20, color: "#c47e37" }} />,
+      icon: <HourglassEmptyIcon sx={{ fontSize: 20, color: "#d1521b" }} />,
       label: "Pending Approvals",
       style: { bottom: 60, left: 70, background: "linear-gradient(135deg, #FF7E5F, #FFB199)" },
     },
@@ -138,9 +146,7 @@ const HeroSection = () => {
           WebkitTextFillColor: "transparent",
         }}
       >
-        {/* <span style={{ color: "white" }}>Task</span> Master */}
         Elevate Task Management with the Power of Task Master
-
       </Typography>
     </motion.div>
 
@@ -154,17 +160,15 @@ const HeroSection = () => {
         color="white"
         sx={{
           fontWeight: 400,
-          fontSize: { xs: "1.1rem", md: "1.2rem" },
+          fontSize: { xs: "1rem", md: "1.1rem" },
           mb: 4,
           opacity: 0.9,
-          // textAlign: "center",
-          // maxWidth: { xs: "90%", sm: "80%", md: "80%" },
-          mx: "auto",
+          textAlign: "left",
+          maxWidth: { xs: "90%", sm: "80%", md: "90%" },
+          // mx: "auto",
         }}
       >
-        Streamline your team’s productivity with intelligent task
-        prioritization, smart deadline suggestions, and real-time collaboration
-        tools — all in one powerful platform.
+        Streamline your team’s productivity with Task Master — featuring intelligent task prioritization, smart deadline suggestions, and real-time collaboration tools, all in one powerful platform.
       </Typography>
     </motion.div>
 
@@ -190,7 +194,11 @@ const HeroSection = () => {
           borderRadius: '30px',
           background: "linear-gradient(90deg, #4E36FF, #900BFF)",
           color: "white",
-          fontSize: '1.1rem'
+          fontSize: '1.1rem',
+          transition: "transform 0.3s ease",
+          "&:hover":{
+            transform: 'scale(1.06)'
+          }
         }}
       >
         Book a Free Demo
@@ -209,11 +217,12 @@ const HeroSection = () => {
           py: 1.5,
           px: 4,
           color: "white",
-                    fontSize: '1.1rem',
+          fontSize: '1.1rem',
           borderColor: "rgba(255,255,255,0.3)",
-          borderWidth: 2,
           borderRadius: '30px',
+          transition: "transform 0.3s ease",
           "&:hover": {
+            transform: "scale(1.06)",
             borderColor: "white",
             bgcolor: "rgba(255,255,255,0.05)",
           },
@@ -225,14 +234,14 @@ const HeroSection = () => {
     </Stack>
 
     {/* Cards */}
-    <Grid
+    {/* <Grid
       container
       spacing={3}
       // justifyContent="center"
       mt={2}
     >
       {features.map((feature, index) => (
-        <Grid key={index} item xs={10} sm={6} md={4}>
+        <Grid key={index} item xs={12} sm={6} md={4} sx={{display: 'flex'}}>
           <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 40, scale: 0.9 }}
@@ -245,15 +254,19 @@ const HeroSection = () => {
                             }}
                             style={{ width: "100%" }}
                           >
-          <Paper
+          <Card
             elevation={4}
             sx={{
-              // p: 3,
-              py:1,  
-              px:2,
+              p: 1,
+              // py:1,  
+              // px:2,
               borderRadius: 3,
               height: '100%',
+              // minHeight: '120px',
+              // maxHeight: '140px',
               width: '100%',
+              display:'flex',
+              flexDirection:'column',
               background: "rgba(255, 255, 255, 0.02)",
               border: "1px solid rgba(255, 255, 255, 0.06)",
               backdropFilter: "blur(10px)",
@@ -268,18 +281,101 @@ const HeroSection = () => {
               },
             }}
           >
+            <CardContent sx={{flexGrow:1}}>
+            <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                          // mb: 2.5,
+                        }}
+                      >
             <Box>{feature.icon}</Box>
             <Typography variant="body1" fontWeight={600}>
               {feature.title}
             </Typography>
-            <Typography variant="body2" sx={{ opacity: 0.8 }}>
+            </Box>
+            <Typography variant="body2" sx={{ opacity: 0.8, lineHeight: 1 }}>
               {feature.description}
             </Typography>
-          </Paper>
+            </CardContent>
+          </Card>
           </motion.div>
         </Grid>
       ))}
-    </Grid>
+    </Grid> */}
+
+    {/* Trusted Companies Section */}
+<Box sx={{ mt: 4 }}>
+  <Typography
+    variant="subtitle1"
+    sx={{
+      color: "white",
+      fontWeight: 500,
+      mb: 3,
+      fontSize: "1rem",
+      textAlign: {xs: 'center', sx:'left', md:'left'},
+      position: "relative",
+      // pl: 1,
+    }}
+  >
+    Trusted by 5,000+ teams across industries
+  </Typography>
+
+  <Box
+    sx={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 4,
+      justifyContent: { xs: "center", sm: "center", md: "flex-start" },
+      alignItems: "center",
+    }}
+  >
+    {[
+      { name: "GlobalTech", icon: <PublicIcon /> },
+      { name: "SecureNet", icon: <SecurityIcon /> },
+      { name: "DataFlow", icon: <FlashOnIcon /> },
+      { name: "BusinessPro", icon: <WorkIcon /> },
+      { name: "HealthFirst", icon: <FavoriteIcon /> },
+    ].map((company, index) => (
+      <Box
+        key={index}
+        sx={{
+          minWidth: 100,
+          textAlign: "center",
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            backdropFilter: "blur(6px)",
+            borderRadius: "50%",
+            p: 1.5,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mx: "auto",
+            mb: 1,
+            width: 40,
+            height: 40,
+          }}
+        >
+          <Box sx= {{ color: "#C2C2FF", fontSize: 28 }}>
+            {company.icon}
+          </Box>
+        </Box>
+        <Typography
+          variant="body2"
+          sx={{ color: "white", opacity: 0.8, textAlign: "center", fontSize: "0.85rem" }}
+        >
+          {company.name}
+        </Typography>
+      </Box>
+    ))}
+  </Box>
+</Box>
+
   </Grid>
 
   {/* Right Image Content */}
@@ -307,7 +403,7 @@ const HeroSection = () => {
         }}
       />
 
-      {animatedCards.map((card, index) => (
+      {/* {animatedCards.map((card, index) => (
                 <motion.div
                   key={index}
                   animate={{ y: [0, -8, 0] }}
@@ -317,7 +413,7 @@ const HeroSection = () => {
                     padding: "12px 10px",
                     borderRadius: "12px",
                     color: "white",
-                    fontSize: "0.75rem",
+                    fontSize: "0.74rem",
                     fontWeight: 500,
                     display: "flex",
                     alignItems: "center",
@@ -330,7 +426,7 @@ const HeroSection = () => {
                 >
                   {card.icon} {card.label}
                 </motion.div>
-              ))}
+              ))} */}
     </motion.div>
   </Grid>
 </Grid>
