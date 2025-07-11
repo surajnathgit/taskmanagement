@@ -84,12 +84,6 @@ const WhyChooseSection = () => {
           </Typography>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
           <Grid container spacing={3}>
             {[
               "AI-powered task recommendations tailored to workload",
@@ -99,29 +93,48 @@ const WhyChooseSection = () => {
               "Scalable for startups, agencies, and enterprises alike",
               "Smart notifications and reminders to keep teams aligned",
             ].map((point, index) => (
-              <Grid item xs={12} sm={6} key={index}>
+              <Grid item xs={12} sm={6} key={index} sx={{display: 'flex'}}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3*index }}
+                  viewport={{ once: true }}
+                  style={{width: "100%"}}
+                >
                 <Card
                   sx={{
                     background: "rgba(255, 255, 255, 0.05)",
                     borderRadius: 3,
                     px: 2,
-                    py: 2.5,
+                    // py: 2.5,
                     height: "100%",
+                    width:"100%",
                     borderLeft: "5px solid #4E36FF",
                     display: "flex",
                     alignItems: "flex-start",
                     justifyContent: "flex-start",
                     textAlign: "left",
+                    transition: "all 0.3s ease",
+                    transform: "translateX(0)",
+                    boxShadow: "none",
+                    "&:hover": {
+                      transform: "translateX(6px)",
+                      boxShadow: "0 8px 20px rgba(127, 91, 255, 0.2)", 
+                      background: "rgba(255, 255, 255, 0.07)",         
+                      borderLeft: "5px solid #7F5BFF",                 
+                    },
                   }}
                 >
+                   <CardContent sx={{flexGrow: 1}}>
                   <Typography variant="body1" sx={{ color: "white" }}>
                     {point}
                   </Typography>
+                  </CardContent>
                 </Card>
+            </motion.div>
               </Grid>
             ))}
           </Grid>
-        </motion.div>
 
         {/* Efficiency Gains & Impact */}
         <Box sx={{ mt: 8 }}>

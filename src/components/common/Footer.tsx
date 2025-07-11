@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
+import XIcon from '@mui/icons-material/X';
 import FadeIn from "../animations/FadeIn";
 
 const Footer = () => {
@@ -46,6 +47,11 @@ const Footer = () => {
               <IconButton
                 size="small"
                 sx={{ color: "white", "&:hover": { color: "primary.main" } }}
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/share/16cozxSfFt/?mibextid=wwXIfr%22"
+                  )
+                }
               >
                 <Facebook />
               </IconButton>
@@ -53,7 +59,7 @@ const Footer = () => {
                 size="small"
                 sx={{ color: "white", "&:hover": { color: "primary.main" } }}
               >
-                <Twitter />
+                <XIcon />
               </IconButton>
               <IconButton
                 size="small"
@@ -65,8 +71,7 @@ const Footer = () => {
                 }}
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/company/fin-coopers-tech-india-private-limited/about/",
-                    "_blank"
+                    "https://www.linkedin.com/company/fin-coopers-tech-india-private-limited/?viewAsMember=true"
                   )
                 }
               >
@@ -76,6 +81,11 @@ const Footer = () => {
               <IconButton
                 size="small"
                 sx={{ color: "white", "&:hover": { color: "primary.main" } }}
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/fincoopers.tech?igsh=MXM1aTN3eno3Y3Vobg%3D%3D&utm_source=qr"
+                  )
+                }
               >
                 <Instagram />
               </IconButton>
@@ -225,11 +235,11 @@ const Footer = () => {
                   Email: 
                 </Typography>
               </Link>
-              <Link href="tel:+919302075637" style={{ textDecoration: "none" }}>
+              {/* <Link href="tel:+919302075637" style={{ textDecoration: "none" }}>
                 <Typography variant="body2" color="grey.400">
                   Phone: 
                 </Typography>
-              </Link>
+              </Link> */}
             </Box>
             </FadeIn>
           </Grid>
