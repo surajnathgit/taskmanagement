@@ -48,23 +48,23 @@ const HeroSection = () => {
     },
   ];
 
-    const animatedCards = [
-    {
-      icon: <CheckCircleOutlineIcon sx={{ fontSize: 20, color: "#02b8fa", fontWeight:'bold' }} />,
-      label: "Tasks Completed",
-      style: { top: 40, right: 25, background: "linear-gradient(135deg, #0be9b6, #0cbcf2)" },
-    },
-    {
-      icon: <HourglassEmptyIcon sx={{ fontSize: 20, color: "#d1521b" }} />,
-      label: "Pending Approvals",
-      style: { bottom: 60, left: 70, background: "linear-gradient(135deg, #FF7E5F, #FFB199)" },
-    },
-    {
-      icon: <LoopIcon sx={{ fontSize: 20, color: "#4515ed" }} />,
-      label: "Auto-Scheduled",
-      style: { top: "40%", left: 35, background: "linear-gradient(135deg, #6E8EFB, #A777E3)" },
-    },
-  ];
+  //   const animatedCards = [
+  //   {
+  //     icon: <CheckCircleOutlineIcon sx={{ fontSize: 20, color: "#02b8fa", fontWeight:'bold' }} />,
+  //     label: "Tasks Completed",
+  //     style: { top: 40, right: 25, background: "linear-gradient(135deg, #0be9b6, #0cbcf2)" },
+  //   },
+  //   {
+  //     icon: <HourglassEmptyIcon sx={{ fontSize: 20, color: "#d1521b" }} />,
+  //     label: "Pending Approvals",
+  //     style: { bottom: 60, left: 70, background: "linear-gradient(135deg, #FF7E5F, #FFB199)" },
+  //   },
+  //   {
+  //     icon: <LoopIcon sx={{ fontSize: 20, color: "#4515ed" }} />,
+  //     label: "Auto-Scheduled",
+  //     style: { top: "40%", left: 35, background: "linear-gradient(135deg, #6E8EFB, #A777E3)" },
+  //   },
+  // ];
 
   return (
     <Box
@@ -383,7 +383,7 @@ const HeroSection = () => {
   component={motion.div}
   animate={{
     y: [0, -6, 0],
-    rotateZ: [0, 0.5, 0, -0.5, 0],
+    rotateZ: [0, 0.8, 0, -0.8, 0],
   }}
   transition={{
     duration: 6,
@@ -394,7 +394,7 @@ const HeroSection = () => {
     position: "relative",
     width: "100%",
     maxWidth: { xs: 320, sm: 400, md: 600 },
-     height: "auto",
+    height: "auto",
     mx: "auto",
     aspectRatio: "4 / 3",
   }}

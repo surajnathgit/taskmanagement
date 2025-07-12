@@ -7,6 +7,7 @@ import {
   Grid,
   Card,
   CardContent,
+  Button,
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
@@ -17,6 +18,7 @@ import AlarmIcon from '@mui/icons-material/Alarm';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import {AutoAwesomeMotion,AccessTime,Forum,TrackChanges,Troubleshoot,FolderCopy} from "@mui/icons-material";
+import Image from "next/image";
 
 const features = [
   {
@@ -110,7 +112,7 @@ const ProductDemoPage = () => {
       <Box
         sx={{
           minHeight: "100vh",
-          py: 4,
+          py: 6,
           position: "relative",
           zIndex: 1,
         }}
@@ -123,20 +125,19 @@ const ProductDemoPage = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Box sx={{ textAlign: "center", mb: 2 }}>
               <Typography
-                variant="h3"
+                variant="h2"
                 sx={{
                   fontWeight: 700,
-                  mb: 2,
-                  fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
+                  // mt: 2,
+                  fontSize: { xs: "1.8rem", sm: "2.2rem", md: "3.5rem" },
                   background: "linear-gradient(90deg, #4E36FF, #FF6B6B)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-
                 }}
               >
-                Explore Task Master
+                See Task Master in Action
               </Typography>
             </Box>
           </motion.div>
@@ -151,182 +152,93 @@ const ProductDemoPage = () => {
             <Typography
               variant="body1"
               textAlign="center"
-              sx={{ maxWidth: 900, mx: "auto", mb: 6 }}
+              sx={{ maxWidth: 900, mx: "auto", mb: 2 }}
             >
-              Task Master is a powerful project management solution designed for
-              modern teams. It combines AI-driven features with flexible
-              workflows and real-time collaboration to streamline task execution
-              and enhance productivity across any organization.
-            </Typography>
+              Explore our intuitive interface and discover how effortless task management can be. See how Task Master transforms your team's productivity and streamlines your workflow management.            
+              </Typography>
           </motion.div>
 
-          {/* Product Image Grid */}
-          <Grid container spacing={4}>
-            {/* First Image - Full Width */}
-            <Grid item xs={12}>
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                viewport={{ once: true }}
-                style={{
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Task Master Overview"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-              </motion.div>
-            </Grid>
-          </Grid>
+<Box
+      sx={{
+        // bgcolor: "#0d1028", 
+        py: { xs: 6, md: 10 },
+        // px: { xs: 2, md: 6 },
+      }}
+    >
+      <Grid
+        container
+        spacing={6}
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          maxWidth: "1200px",
+          mx: "auto",
+        }}
+      >
+        {/* LEFT TEXT SIDE */}
+        <Grid item xs={12} md={6}>
+          <Typography
+            variant="h4"
+            fontWeight={600}
+            color="white"
+            mb={2}
+            sx={{ textAlign: { xs: "center", md: "left" } }}
+          >
+            Access Your Dashboard
+          </Typography>
+          <Typography
+            variant="body1"
+            color="#d1d5db"
+            mb={4}
+            sx={{ textAlign: { xs: "center", md: "left" } }}
+          >
+Navigate to your task management area where you can view assigned and received tasks. Our clean interface makes it easy to organize your workflow.          </Typography>
 
-          {/* Second & Third Sections using Grid */}
-          <Grid container spacing={4} sx={{ mt: 0, mb: 8 }}>
-            {/* Second Section */}
-            <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true }}
-                style={{
-                  background: "#1a1a40",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-              >
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661700152890-931fb04588e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Collaborate Seamlessly"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                />
-              </motion.div>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={6}
+          <Box textAlign={{ xs: "center", md: "left" }}>
+            <Button
+              variant="contained"
+              size="large"
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+                bgcolor: "#1976d2",
+                textTransform: "none",
+                borderRadius: 2,
+                px: 4,
+                "&:hover": { bgcolor: "#125ea8" },
               }}
             >
-              <Box>
-                <motion.div
-                  initial={{ y: 60, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <Typography
-                    variant="h4"
-                    fontWeight={600}
-                    color="#A78BFA"
-                    gutterBottom
-                  >
-                    Collaborate Seamlessly
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    paragraph
-                    sx={{ textAlign: "justify" }}
-                  >
-                    Keep everyone on the same page with real-time communication
-                    and contextual file sharing. Task Master integrates chat,
-                    mentions, and file uploads directly into tasks and
-                    discussions, ensuring your team collaborates efficiently
-                    without switching apps.
-                  </Typography>
-                </motion.div>
-              </Box>
-            </Grid>
+              Go to Dashboard
+            </Button>
+          </Box>
+        </Grid>
 
-            {/* Third Section - Reverse Layout */}
-            <Grid
-              item
-              xs={12}
-              md={6}
-              order={{ xs: 2, md: 1 }}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+        {/* RIGHT IMAGE SIDE */}
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              maxWidth: 750,
+              mx: "auto",
+              // borderRadius: 2,
+              overflow: "hidden",
+              // boxShadow: 5,
+              // border: "1px solid #1e293b",
+            }}
+          >
+            <Image
+              src="/images/task master dashboard.png"
+              alt="Task Master Dashboard"
+              width={800}
+              height={800}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                borderRadius: "8px",
               }}
-            >
-              <Box>
-                <motion.div
-                  initial={{ y: 60, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <Typography
-                    variant="h4"
-                    fontWeight={600}
-                    color="#A78BFA"
-                    gutterBottom
-                  >
-                    Track Progress Smartly
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    paragraph
-                    sx={{ textAlign: "justify" }}
-                  >
-                    AI monitors progress trends and flags delays early — so you
-                    stay in control. Task Master uses predictive analytics to
-                    analyze task completion patterns, alerting you to potential
-                    bottlenecks before they impact deadlines.
-                  </Typography>
-                </motion.div>
-              </Box>
-            </Grid>
-
-            <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                viewport={{ once: true }}
-                style={{
-                  background: "#1a1a40",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1455133332007-a0956e4fde21?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Track Progress Smartly"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                />
-              </motion.div>
-            </Grid>
-          </Grid>
-
+            />
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
           {/* Video Demo Section */}
           <Box sx={{ mt:12, mb: 12}}>
             <motion.div
