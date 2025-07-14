@@ -7,6 +7,7 @@ import {
   Grid,
   Card,
   CardContent,
+  Chip,
   Button,
   useTheme,
 } from "@mui/material";
@@ -18,7 +19,7 @@ import AlarmIcon from '@mui/icons-material/Alarm';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import {AutoAwesomeMotion,AccessTime,Forum,TrackChanges,Troubleshoot,FolderCopy} from "@mui/icons-material";
-import Image from "next/image";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const features = [
   {
@@ -51,6 +52,37 @@ const features = [
     desc: "Upload and access files right in your tasks.",
     icon: <FolderCopy />,
   },
+];
+
+const productSteps = [
+  {
+    step: "01",
+    title: "Access Your Dashboard",
+    description:
+      "Get a full overview of your team's tasks, deadlines, and activity logs in one place. Task Master’s dashboard centralizes productivity insights with a clean, intuitive UI.",
+    features: [
+      "Real-time analytics",
+      "Performance insights",
+      "Cross-platform access",
+      "Visual reporting"
+    ],
+    image: "/images/task master dashboard.png",          // First image provided
+    alt: "Dashboard Overview"
+  },
+  {
+    step: "02",
+    title: "Track Assigned and Received Tasks",
+    description:
+      "Easily view your assigned and received tasks in real-time, categorized for clarity. Get rid of clutter and focus on what matters most with personalized task streams.",
+    features: [
+      "Clear task segregation",
+      "Interactive status tracking",
+      "Quick communication tools",
+      "Calendar-integrated view"
+    ],
+    image: "/images/task master dashboard.png", // Second image provided
+    alt: "Assigned vs Received Tasks"
+  }
 ];
 
 const ProductDemoPage = () => {
@@ -152,70 +184,187 @@ const ProductDemoPage = () => {
             <Typography
               variant="body1"
               textAlign="center"
-              sx={{ maxWidth: 900, mx: "auto", mb: 2 }}
+              sx={{ maxWidth: 900, mx: "auto", mb: 4 }}
             >
               Explore our intuitive interface and discover how effortless task management can be. See how Task Master transforms your team's productivity and streamlines your workflow management.            
               </Typography>
           </motion.div>
+          </Container>
 
-<Box
+      <Container maxWidth="xl">
+      <Box
       sx={{
         // bgcolor: "#0d1028", 
-        py: { xs: 6, md: 10 },
-        // px: { xs: 2, md: 6 },
+        // py: { xs: 6, md: 10 },
+        // px: { xs: 2, md: 0 },
       }}
     >
-      <Grid
-        container
-        spacing={6}
-        alignItems="center"
-        justifyContent="center"
-        sx={{
-          maxWidth: "1200px",
-          mx: "auto",
-        }}
-      >
-        {/* LEFT TEXT SIDE */}
-        <Grid item xs={12} md={6}>
-          <Typography
-            variant="h4"
-            fontWeight={600}
-            color="white"
-            mb={2}
-            sx={{ textAlign: { xs: "center", md: "left" } }}
+      {productSteps.map((step, index) => {
+        const isEven = index % 2 === 0;
+        return (
+          <Box key={index} sx={{ px: { xs: 2, md: 6 } }}> 
+          {/* <Card
+      key={index}
+      sx={{
+        borderRadius: 4,
+        overflow: "hidden",
+        background: "rgba(68, 30, 57, 0.58)", // subtle glass background
+        backdropFilter: "blur(8px)",
+        // border: "1px solid rgba(255, 255, 255, 0.06)",
+        boxShadow: "0 8px 24px rgba(166, 102, 255, 0.15)",
+        px: { xs: 2, md: 6 },
+        // py: { xs: 6, md: 8 },
+        mb: 8,
+        // width: '1200px',
+        // transition: "transform 0.3s ease",
+        // "&:hover": {
+        //   transform: "scale(1.01)",
+        //   boxShadow: "0 8px 32px rgba(255, 107, 107, 0.2)",
+        // }
+      }}
+    > */}
+          <Grid
+            container
+            key={index}
+            spacing={6}
+            direction={isEven ? "row" : "row-reverse"}
+            alignItems="center"
+            sx={{
+              // mb: 8,
+              // px: { xs: 2, md: 8 }
+            }}
           >
-            Access Your Dashboard
-          </Typography>
-          <Typography
-            variant="body1"
-            color="#d1d5db"
-            mb={4}
-            sx={{ textAlign: { xs: "center", md: "left" } }}
-          >
-Navigate to your task management area where you can view assigned and received tasks. Our clean interface makes it easy to organize your workflow.          </Typography>
+            {/* Content */}
+            <Grid item xs={12} md={4}>
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Box sx={{ mb: 2, display: "flex", alignItems: "center", gap: 2 }}>
+                  <Chip
+                    label={step.step}
+                    sx={{
+                      fontWeight: 700,
+                      background: "linear-gradient(to right, #A666FF, #FF6B6B)",
+                      color: "white",
+                      fontSize: "1rem",
+                      px: 2
+                    }}
+                  />
+                  {/* <Chip
+                    icon={<VisibilityIcon />}
+                    label="View"
+                    sx={{
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      color: "#C2C2FF"
+                    }}
+                  /> */}
+                </Box>
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: 700, color: "white", mb: 2 }}
+                >
+                  {step.title}
+                </Typography>
+                <Typography
+                  sx={{ color: "#C2C2FF", mb: 2, lineHeight: 1.6, textAlign: 'justify' }}
+                >
+                  {step.description}
+                </Typography>
+                <Typography
+                  sx={{ fontWeight: 600, color: "white", mb: 1 }}
+                >
+                  Key Features:
+                </Typography>
+                <Grid container spacing={1}>
+                  {step.features.map((feature, idx) => (
+                    <Grid item xs={12} sm={6} key={idx}>
+                      <Typography
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          color: "#6EF5A7",
+                          fontWeight: 500
+                        }}
+                      >
+                        ✅ &nbsp;
+                        <span style={{ color: "#C2C2FF" }}>{feature}</span>
+                      </Typography>
+                    </Grid>
+                  ))}
+                </Grid>
+              </motion.div>
+            </Grid>
 
-          <Box textAlign={{ xs: "center", md: "left" }}>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                bgcolor: "#1976d2",
-                textTransform: "none",
-                borderRadius: 2,
-                px: 4,
-                "&:hover": { bgcolor: "#125ea8" },
-              }}
-            >
-              Go to Dashboard
-            </Button>
+            {/* Image */}
+            <Grid item xs={12} md={8}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                {/* <Card
+                  sx={{
+                    // borderRadius: 4,
+                    overflow: "hidden",
+                    backgroundColor: "transparent",
+                    // boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
+                    p: 1
+                  }}
+                >
+                  <CardContent
+                    sx={{
+                      p: 0
+                    }}
+                  > */}
+                  <Box
+      sx={{
+        display: "flex",
+        justifyContent: "flex-end", // pushes image to the right
+        // pr: { xs: 0, sm: 2, md: 2 }, // optional extra spacing on the right
+        ml: 2
+      }}
+    >
+                    <Box
+                      component="img"
+                      src={step.image}
+                      alt={step.alt}
+                      sx={{
+                        width: "100%", // make image fill available width responsively
+    maxWidth: {
+      xs: "95%",      // almost full width on extra-small screens
+      sm: "90%",      // slightly reduced width on small screens
+      md: "700px",    // fixed upper bounds on medium screens and up
+      lg: "800px",
+      xl: "900px"
+    },
+                        height: "auto",
+                        mx: "auto",
+                        borderRadius: 2,
+                        objectFit: "cover"
+                      }}
+                    />
+                  {/* </CardContent>
+                </Card> */}
+                </Box>
+              </motion.div>
+            </Grid>
+          </Grid>
+          {/* </Card> */}
           </Box>
-        </Grid>
+        );
+      })}
+    </Box>
+    </Container>
 
-        {/* RIGHT IMAGE SIDE */}
-        <Grid item xs={12} md={6}>
+            {/* RIGHT IMAGE SIDE */}
+        {/* <Grid item xs={12} md={6}>
           <Box
             sx={{
-              maxWidth: 750,
+              maxWidth: 950,
               mx: "auto",
               // borderRadius: 2,
               overflow: "hidden",
@@ -226,8 +375,8 @@ Navigate to your task management area where you can view assigned and received t
             <Image
               src="/images/task master dashboard.png"
               alt="Task Master Dashboard"
-              width={800}
-              height={800}
+              width={900}
+              height={900}
               style={{
                 width: "100%",
                 height: "auto",
@@ -236,10 +385,10 @@ Navigate to your task management area where you can view assigned and received t
               }}
             />
           </Box>
-        </Grid>
-      </Grid>
-    </Box>
+        </Grid> */}
+
           {/* Video Demo Section */}
+          <Container maxWidth="lg">
           <Box sx={{ mt:12, mb: 12}}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
