@@ -66,7 +66,7 @@ const productSteps = [
       "Cross-platform access",
       "Visual reporting"
     ],
-    image: "/images/task master dashboard.png",          // First image provided
+    image: "/images/Dashboard mockup.png",          
     alt: "Dashboard Overview"
   },
   {
@@ -80,7 +80,7 @@ const productSteps = [
       "Quick communication tools",
       "Calendar-integrated view"
     ],
-    image: "/images/task master dashboard.png", // Second image provided
+    image: "/images/Add task mockup222.png", 
     alt: "Assigned vs Received Tasks"
   }
 ];
@@ -339,12 +339,13 @@ const ProductDemoPage = () => {
       sm: "90%",      // slightly reduced width on small screens
       md: "700px",    // fixed upper bounds on medium screens and up
       lg: "800px",
-      xl: "900px"
+      xl: "1000px"
     },
                         height: "auto",
                         mx: "auto",
                         borderRadius: 2,
-                        objectFit: "cover"
+                        objectFit: "cover",
+                        backgroundColor: "transparent",
                       }}
                     />
                   {/* </CardContent>
