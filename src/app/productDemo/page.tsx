@@ -20,6 +20,7 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import {AutoAwesomeMotion,AccessTime,Forum,TrackChanges,Troubleshoot,FolderCopy} from "@mui/icons-material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import Image from "next/image";
 
 const features = [
   {
@@ -54,36 +55,40 @@ const features = [
   },
 ];
 
-const productSteps = [
+const steps = [
   {
-    step: "01",
-    title: "Access Your Dashboard",
+    step: 1,
+    heading: "Dashboard Overview",
     description:
-      "Get a full overview of your team's tasks, deadlines, and activity logs in one place. Task Master’s dashboard centralizes productivity insights with a clean, intuitive UI.",
-    features: [
-      "Real-time analytics",
-      "Performance insights",
-      "Cross-platform access",
-      "Visual reporting"
-    ],
-    image: "/images/Dashboard mockup.png",          
+      "Get a comprehensive view of all your tasks with our intuitive dashboard. See assigned tasks, received tasks, and track progress at a glance.",
+    features: ["Real-time task tracking", "Team collaboration", "Progress visualization"],
+    img: "/images/Dashboard-mockup.png", // update with your path
     alt: "Dashboard Overview"
   },
   {
-    step: "02",
-    title: "Track Assigned and Received Tasks",
+    step: 2,
+    heading: "Quick Task Creation",
     description:
-      "Easily view your assigned and received tasks in real-time, categorized for clarity. Get rid of clutter and focus on what matters most with personalized task streams.",
-    features: [
-      "Clear task segregation",
-      "Interactive status tracking",
-      "Quick communication tools",
-      "Calendar-integrated view"
-    ],
-    image: "/images/Add task mockup222.png", 
-    alt: "Assigned vs Received Tasks"
-  }
+      "Create new tasks with ease using our streamlined interface. Assign users, set due dates, and add task details in just a few clicks.",
+    features: ["Smart user search", "Multi-line task input", "Instant form access"],
+    img: "/images/Add-task-mockup.png",
+    alt: "Quick Task Creation"
+  },
+  {
+    step: 3,
+    heading: "Task Insights & Progress",
+    description:
+      "Dive into detailed task views to track task status, deadlines, and completion metrics, helping you stay on top of everything.",
+    features: ["Status tracking", "Clear deadlines", "Efficient updates"],
+    img: "/images/Task-status-mockup.png",
+    alt: "Task Insights & Progress"
+  },
 ];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const ProductDemoPage = () => {
   const theme = useTheme();
@@ -191,176 +196,101 @@ const ProductDemoPage = () => {
           </motion.div>
           </Container>
 
-      <Container maxWidth="xl">
-      <Box
-      sx={{
-        // bgcolor: "#0d1028", 
-        // py: { xs: 6, md: 10 },
-        // px: { xs: 2, md: 0 },
-      }}
-    >
-      {productSteps.map((step, index) => {
-        const isEven = index % 2 === 0;
-        return (
-          <Box key={index} sx={{ px: { xs: 2, md: 6 } }}> 
-          {/* <Card
-      key={index}
-      sx={{
-        borderRadius: 4,
-        overflow: "hidden",
-        background: "rgba(68, 30, 57, 0.58)", // subtle glass background
-        backdropFilter: "blur(8px)",
-        // border: "1px solid rgba(255, 255, 255, 0.06)",
-        boxShadow: "0 8px 24px rgba(166, 102, 255, 0.15)",
-        px: { xs: 2, md: 6 },
-        // py: { xs: 6, md: 8 },
-        mb: 8,
-        // width: '1200px',
-        // transition: "transform 0.3s ease",
-        // "&:hover": {
-        //   transform: "scale(1.01)",
-        //   boxShadow: "0 8px 32px rgba(255, 107, 107, 0.2)",
-        // }
-      }}
-    > */}
+<Box sx={{ py: { xs: 6, md: 12 } }}>
+      <Container  maxWidth={false} sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}>
+        {steps.map((step, index) => (
           <Grid
-            container
             key={index}
-            spacing={6}
-            direction={isEven ? "row" : "row-reverse"}
+            container
+            spacing={10}
+            direction={{ xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" }}
             alignItems="center"
-            sx={{
-              // mb: 8,
-              // px: { xs: 2, md: 8 }
-            }}
+            mb={index !== steps.length - 1 ? 12 : 0}
           >
-            {/* Content */}
-            <Grid item xs={12} md={4}>
+            {/* Text Section */}
+            <Grid item xs={12} md={6} sx={{ pl: { md: 6 } }}>
               <motion.div
-                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Box sx={{ mb: 2, display: "flex", alignItems: "center", gap: 2 }}>
-                  <Chip
-                    label={step.step}
-                    sx={{
-                      fontWeight: 700,
-                      background: "linear-gradient(to right, #A666FF, #FF6B6B)",
-                      color: "white",
-                      fontSize: "1rem",
-                      px: 2
-                    }}
-                  />
-                  {/* <Chip
-                    icon={<VisibilityIcon />}
-                    label="View"
-                    sx={{
-                      backgroundColor: "rgba(255,255,255,0.05)",
-                      color: "#C2C2FF"
-                    }}
-                  /> */}
-                </Box>
+                <Typography
+                  variant="subtitle2"
+                  color="primary"
+                  fontWeight={700}
+                  sx={{ mb: 1 }}
+                >
+                  Step {step.step}
+                </Typography>
+
                 <Typography
                   variant="h5"
-                  sx={{ fontWeight: 700, color: "white", mb: 2 }}
+                  fontWeight={800}
+                  sx={{ mb: 2 }}
                 >
-                  {step.title}
+                  {step.heading}
                 </Typography>
+
                 <Typography
-                  sx={{ color: "#C2C2FF", mb: 2, lineHeight: 1.6, textAlign: 'justify' }}
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ mb: 3 }}
                 >
                   {step.description}
                 </Typography>
-                <Typography
-                  sx={{ fontWeight: 600, color: "white", mb: 1 }}
-                >
-                  Key Features:
-                </Typography>
-                <Grid container spacing={1}>
-                  {step.features.map((feature, idx) => (
-                    <Grid item xs={12} sm={6} key={idx}>
-                      <Typography
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          color: "#6EF5A7",
-                          fontWeight: 500
-                        }}
-                      >
-                        ✅ &nbsp;
-                        <span style={{ color: "#C2C2FF" }}>{feature}</span>
-                      </Typography>
-                    </Grid>
+
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                  {step.features.map((feature, i) => (
+                    <Chip
+                      key={i}
+                      label={feature}
+                      color="primary"
+                      variant="outlined"
+                      sx={{ fontWeight: 600 }}
+                    />
                   ))}
-                </Grid>
+                </Box>
               </motion.div>
             </Grid>
 
-            {/* Image */}
-            <Grid item xs={12} md={8}>
+            {/* Image Section */}
+            <Grid item xs={12} md={6}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
               >
-                {/* <Card
+                <Box
                   sx={{
-                    // borderRadius: 4,
-                    overflow: "hidden",
-                    backgroundColor: "transparent",
-                    // boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
-                    p: 1
+                    borderRadius: 4,
+                    // overflow: "hidden",
+                    width: "100%",                          // make sure it uses full width
+    maxWidth: { xs: "100%", md: "1000px" },  // adjust to control the image size
+    mx: "auto",
+                    // boxShadow: theme.shadows[5],
                   }}
                 >
-                  <CardContent
-                    sx={{
-                      p: 0
-                    }}
-                  > */}
-                  <Box
-      sx={{
-        display: "flex",
-        justifyContent: "flex-end", // pushes image to the right
-        // pr: { xs: 0, sm: 2, md: 2 }, // optional extra spacing on the right
-        ml: 2
-      }}
-    >
-                    <Box
-                      component="img"
-                      src={step.image}
-                      alt={step.alt}
-                      sx={{
-                        width: "100%", // make image fill available width responsively
-    maxWidth: {
-      xs: "95%",      // almost full width on extra-small screens
-      sm: "90%",      // slightly reduced width on small screens
-      md: "700px",    // fixed upper bounds on medium screens and up
-      lg: "800px",
-      xl: "1000px"
-    },
-                        height: "auto",
-                        mx: "auto",
-                        borderRadius: 2,
-                        objectFit: "cover",
-                        backgroundColor: "transparent",
-                      }}
-                    />
-                  {/* </CardContent>
-                </Card> */}
+                  <Image
+                    src={step.img}
+                    alt={step.heading}
+                    width={3000}
+                    height={1200}
+                    quality={100}
+                    style={{ width: "100%", height: "auto",transform: "scale(1)",        // 🔍 ZOOM IN
+      transformOrigin: "center",      // keep it centered
+      objectFit: "cover", }}
+                  />
                 </Box>
               </motion.div>
             </Grid>
           </Grid>
-          {/* </Card> */}
-          </Box>
-        );
-      })}
+        ))}
+      </Container>
     </Box>
-    </Container>
-
             {/* RIGHT IMAGE SIDE */}
         {/* <Grid item xs={12} md={6}>
           <Box
