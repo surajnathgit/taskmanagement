@@ -7,19 +7,15 @@ import {
   Grid,
   Card,
   CardContent,
-  Chip,
-  Button,
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import SettingsIcon from '@mui/icons-material/Settings';
-import AlarmIcon from '@mui/icons-material/Alarm';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import {TipsAndUpdates,AutoAwesome,Settings,Alarm,RocketLaunch,AutoGraph} from "@mui/icons-material";
 import {AutoAwesomeMotion,AccessTime,Forum,TrackChanges,Troubleshoot,FolderCopy} from "@mui/icons-material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import {DashboardOutlined,AddTask,InsertChartOutlined} from "@mui/icons-material";
+import {TaskAltRounded, GroupRounded, AutoAwesomeRounded, ChecklistRounded} from '@mui/icons-material';
+import {CreateRounded, ManageSearchRounded, DateRangeRounded,NotesRounded} from '@mui/icons-material';
+import {ArticleRounded, DonutLargeRounded, CategoryRounded,AutorenewRounded} from '@mui/icons-material';
 import Image from "next/image";
 
 const features = [
@@ -60,28 +56,52 @@ const steps = [
     step: 1,
     heading: "Dashboard Overview",
     description:
-      "Get a comprehensive view of all your tasks with our intuitive dashboard. See assigned tasks, received tasks, and track progress at a glance.",
-    features: ["Real-time task tracking", "Team collaboration", "Progress visualization"],
-    img: "/images/Dashboard-mockup.png", // update with your path
-    alt: "Dashboard Overview"
+      "Get a comprehensive view of all your tasks with our intuitive dashboard. See assigned tasks, received tasks, and track progress at a glance. Whether working solo or with a team, the dashboard keeps your tasks clear and organized. Navigate through our clean and user-friendly interface designed for maximum productivity, ensuring a seamless experience every step of the way.",
+    features: [
+      { text: "Unified Task View", icon: <TaskAltRounded /> },
+      { text: "Team Collaboration", icon: <GroupRounded /> },
+      { text: "Clean & Intuitive Interface", icon: <AutoAwesomeRounded /> },
+      { text: "Task organization", icon: <ChecklistRounded /> },
+    ],    
+    img: "/images/Dashboard-mockup.png", 
+    icon: <DashboardOutlined sx={{ color: "#fff", fontSize: 28 }} />,
+    bg: 'linear-gradient(to left bottom, #3f83ec, #1a70ef, #005cef, #0044ec, #1324e6)',
+    boxShadow: '0 10px 30px rgba(0, 92, 239, 0.5), 0 4px 15px rgba(63, 131, 236, 0.35)',
+    stepTextColor: '#5625f5',
   },
   {
     step: 2,
     heading: "Quick Task Creation",
     description:
-      "Create new tasks with ease using our streamlined interface. Assign users, set due dates, and add task details in just a few clicks.",
-    features: ["Smart user search", "Multi-line task input", "Instant form access"],
-    img: "/images/Add-task-mockup.png",
-    alt: "Quick Task Creation"
+      "Create new tasks with ease using our intuitive interface. Our streamlined task creation interface allows you to quickly add task details, assign team members, set deadlines, and include comprehensive multi-line descriptions. Designed for speed and clarity, our task creation process helps your team stay organized and take action faster.",
+    features: [
+      { text: "Effortless task input", icon: <CreateRounded /> },
+      { text: "Employee search", icon: <ManageSearchRounded /> }, 
+      { text: "Smart Due Date Picker", icon: <DateRangeRounded /> },
+      { text: "Multi-line support", icon: <NotesRounded /> }, 
+    ],
+        img: "/images/Add-task-mockup.png",
+    icon: <AddTask sx={{ color: "#fff", fontSize: 28 }} />,
+    bg: 'linear-gradient(to right top, #a666ff, #ac54e7, #af41ce, #ae2bb6, #ab0d9e)',
+    boxShadow: '0 10px 30px rgba(171, 13, 158, 0.5), 0 4px 15px rgba(166, 102, 255, 0.35)',
+    stepTextColor: '#AB0D9E',
   },
   {
     step: 3,
     heading: "Task Insights & Progress",
     description:
-      "Dive into detailed task views to track task status, deadlines, and completion metrics, helping you stay on top of everything.",
-    features: ["Status tracking", "Clear deadlines", "Efficient updates"],
-    img: "/images/Task-status-mockup.png",
-    alt: "Task Insights & Progress"
+      "Stay on top of your workload with our detailed task views and organized tracking system. Effortlessly switch between pending, completed, and all tasks using intuitive tabs and visual indicators. Track task status, deadlines, and completion metrics in real time, with automatic updates providing clear insights into your progress and productivity.",
+    features: [
+      { text: "Detailed task cards", icon: <ArticleRounded /> },
+      { text: "Status overview", icon: <DonutLargeRounded /> },
+      { text: "Organized tabs", icon: <CategoryRounded /> },
+      { text: "Efficient updates", icon: <AutorenewRounded /> },
+    ],
+        img: "/images/Task-status-mockup.png",
+    icon: <InsertChartOutlined sx={{ color: "#fff", fontSize: 28 }} />,
+    bg: 'linear-gradient(to right top, #6b00ff, #7b27f7, #883bef, #924ce7, #9a5cdf)',
+    boxShadow: '0 10px 30px rgba(123, 39, 247, 0.5), 0 4px 15px rgba(107, 0, 255, 0.3)',
+    stepTextColor: '#9725f5',
   },
 ];
 
@@ -174,7 +194,7 @@ const ProductDemoPage = () => {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                See Task Master in Action
+                Explore Task Master
               </Typography>
             </Box>
           </motion.div>
@@ -191,12 +211,11 @@ const ProductDemoPage = () => {
               textAlign="center"
               sx={{ maxWidth: 900, mx: "auto", mb: 4 }}
             >
-              Explore our intuitive interface and discover how effortless task management can be. See how Task Master transforms your team's productivity and streamlines your workflow management.            
-              </Typography>
+Explore how Task Master’s intuitive design and smart features help your team stay organized, meet deadlines, and work more efficiently—every step of the way.              </Typography>
           </motion.div>
           </Container>
 
-<Box sx={{ py: { xs: 6, md: 12 } }}>
+<Box sx={{ py: { xs: 6, md: 8 } }}>
       <Container  maxWidth={false} sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}>
         {steps.map((step, index) => (
           <Grid
@@ -216,17 +235,44 @@ const ProductDemoPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Typography
-                  variant="subtitle2"
-                  color="primary"
-                  fontWeight={700}
-                  sx={{ mb: 1 }}
-                >
-                  Step {step.step}
-                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+  {/* Icon box */}
+  <Box
+    sx={{
+      width: 50,
+      height: 50,
+      borderRadius: 3,
+      background: step.bg,
+      display: 'flex',  
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: step.boxShadow,
+      mr: 2.5,
+    }}
+  >
+    {step.icon}
+  </Box>
+
+  {/* Step Chip */}
+  <Box
+    sx={{
+      px: 2,
+      py: 0.5,
+      borderRadius: 999,
+      backgroundColor: '#7160f628',
+    }}
+  >
+    <Typography
+      variant="body2"
+      sx={{ color: step.stepTextColor, fontWeight: 700 }}
+    >
+      Step {step.step} of {steps.length}
+    </Typography>
+  </Box>
+</Box>
 
                 <Typography
-                  variant="h5"
+                  variant="h3"
                   fontWeight={800}
                   sx={{ mb: 2 }}
                 >
@@ -235,24 +281,39 @@ const ProductDemoPage = () => {
 
                 <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 3 }}
+                  color="#ffffffd1"
+                  sx={{ mb: 3, textAlign:'justify' }}
                 >
                   {step.description}
                 </Typography>
 
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                  {step.features.map((feature, i) => (
-                    <Chip
-                      key={i}
-                      label={feature}
-                      color="primary"
-                      variant="outlined"
-                      sx={{ fontWeight: 600 }}
-                    />
-                  ))}
-                </Box>
-              </motion.div>
+<Grid container spacing={2}>
+  {step.features.map((feature, i) => (
+    <Grid item xs={12} sm={6} key={i}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+        <Box
+    sx={{
+      width: 35,
+      height: 35,
+      borderRadius: 3,
+      background: step.bg,
+      display: 'flex',  
+      alignItems: 'center',
+      justifyContent: 'center',
+      // boxShadow: step.boxShadow,
+      // mr: 2.5,
+    }}
+  >
+        {feature.icon}
+        </Box>
+        <Typography variant="body1" sx={{ color: '#ffffff', fontWeight: 500 }}>
+          {feature.text}
+        </Typography>
+      </Box>
+    </Grid>
+  ))}
+</Grid>              
+</motion.div>
             </Grid>
 
             {/* Image Section */}
@@ -280,7 +341,7 @@ const ProductDemoPage = () => {
                     width={3000}
                     height={1200}
                     quality={100}
-                    style={{ width: "100%", height: "auto",transform: "scale(1)",        // 🔍 ZOOM IN
+                    style={{ width: "100%", height: "auto",transform: "scale(1)",        
       transformOrigin: "center",      // keep it centered
       objectFit: "cover", }}
                   />
@@ -291,32 +352,6 @@ const ProductDemoPage = () => {
         ))}
       </Container>
     </Box>
-            {/* RIGHT IMAGE SIDE */}
-        {/* <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              maxWidth: 950,
-              mx: "auto",
-              // borderRadius: 2,
-              overflow: "hidden",
-              // boxShadow: 5,
-              // border: "1px solid #1e293b",
-            }}
-          >
-            <Image
-              src="/images/task master dashboard.png"
-              alt="Task Master Dashboard"
-              width={900}
-              height={900}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                borderRadius: "8px",
-              }}
-            />
-          </Box>
-        </Grid> */}
 
           {/* Video Demo Section */}
           <Container maxWidth="lg">
@@ -517,37 +552,37 @@ const ProductDemoPage = () => {
 <Grid container spacing={3}>
   {[
     {
-      icon: <TipsAndUpdatesIcon sx={{fontSize: '30px'}} />,
+      icon: <TipsAndUpdates sx={{fontSize: '30px'}} />,
       title: "Thinks Ahead",
       desc: "AI suggests priorities and predicts risks.",
       bg: "linear-gradient(135deg, #D63384, #E91E63)"
     },
     {
-      icon: <AutoAwesomeIcon sx={{fontSize: '30px'}}/>,
+      icon: <AutoAwesome sx={{fontSize: '30px'}}/>,
       title: "All-in-One",
       desc: "Chat, share files, assign & automate tasks.",
       bg: "linear-gradient(135deg, #96CEB4, #4CAF50)"
     },
     {
-      icon: <SettingsIcon sx={{fontSize: '30px'}}/>,
+      icon: <Settings sx={{fontSize: '30px'}}/>,
       title: "No-Code Rules",
       desc: "Create workflows without writing code.",
       bg: "linear-gradient(135deg, #FF6B6B, #FF8E53)"
     },
     {
-      icon: <AlarmIcon sx={{fontSize: '30px'}}/>,
+      icon: <Alarm sx={{fontSize: '30px'}}/>,
       title: "Risk Alerts",
       desc: "Get notified of delays before they happen.",
       bg: "linear-gradient(135deg,  #AB47BC, #8E24AA)"
     },
     {
-      icon: <RocketLaunchIcon sx={{fontSize: '30px'}}/>,
+      icon: <RocketLaunch sx={{fontSize: '30px'}}/>,
       title: "Easy Onboarding",
       desc: "Start fast with zero learning curve.",
       bg: "linear-gradient(135deg, #45B7D1, #2196F3)"
     },
     {
-      icon: <AutoGraphIcon sx={{fontSize: '30px'}}/>,
+      icon: <AutoGraph sx={{fontSize: '30px'}}/>,
       title: "Scalable",
       desc: "Grows with teams of any size.",
       bg: "linear-gradient(135deg, #7B61FF, #FF47B6)"

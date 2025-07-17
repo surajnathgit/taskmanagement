@@ -30,42 +30,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 const HeroSection = () => {
   const theme = useTheme();
 
-  const features = [
-    {
-      icon: <TipsAndUpdatesIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} />,
-      title: "AI Prioritization",
-      description: "Rank tasks smartly.",
-    },
-    {
-      icon: <AccessTimeIcon sx={{ fontSize: 24, color: theme.palette.secondary.main }} />,
-      title: "Smart Deadlines",
-      description: "Auto-suggest due dates.",
-    },
-    {
-      icon: <GroupsIcon sx={{ fontSize: 24, color: "#7F5BFF" }} />,
-      title: "Collaboration",
-      description: "Work as one team.",
-    },
-  ];
-
-  //   const animatedCards = [
-  //   {
-  //     icon: <CheckCircleOutlineIcon sx={{ fontSize: 20, color: "#02b8fa", fontWeight:'bold' }} />,
-  //     label: "Tasks Completed",
-  //     style: { top: 40, right: 25, background: "linear-gradient(135deg, #0be9b6, #0cbcf2)" },
-  //   },
-  //   {
-  //     icon: <HourglassEmptyIcon sx={{ fontSize: 20, color: "#d1521b" }} />,
-  //     label: "Pending Approvals",
-  //     style: { bottom: 60, left: 70, background: "linear-gradient(135deg, #FF7E5F, #FFB199)" },
-  //   },
-  //   {
-  //     icon: <LoopIcon sx={{ fontSize: 20, color: "#4515ed" }} />,
-  //     label: "Auto-Scheduled",
-  //     style: { top: "40%", left: 35, background: "linear-gradient(135deg, #6E8EFB, #A777E3)" },
-  //   },
-  // ];
-
   return (
     <Box
       sx={{
@@ -408,31 +372,6 @@ const HeroSection = () => {
                   height: "auto",
                 }}
               />
-
-              {/* {animatedCards.map((card, index) => (
-                <motion.div
-                  key={index}
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 2 + index, repeat: Infinity, ease: "easeInOut" }}
-                  style={{
-                    position: "absolute",
-                    padding: "12px 10px",
-                    borderRadius: "12px",
-                    color: "white",
-                    fontSize: "0.74rem",
-                    fontWeight: 500,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    boxShadow: "0 0 12px rgba(255,255,255,0.2)",
-                    backdropFilter: "blur(6px)",
-                    zIndex: 2,
-                    ...card.style,
-                  }}
-                >
-                  {card.icon} {card.label}
-                </motion.div>
-              ))} */}
               </Box>
             </motion.div>
           </Grid>
