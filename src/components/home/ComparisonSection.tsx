@@ -37,7 +37,9 @@ const ComparisonSection = () => {
             gutterBottom
             sx={{               background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
               WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent", textAlign: 'center'}}
+              WebkitTextFillColor: "transparent", textAlign: 'center',
+              fontSize: { xs: "1.8rem", sm: "2.4rem", md: "2.75rem" }
+              }}
           >
              Transformation With Task Master
           </Typography>
@@ -239,6 +241,96 @@ const ComparisonSection = () => {
     </motion.div>
   </Grid>
 </Grid>
+      </Container>
+
+    <Container maxWidth="lg" sx={{ mt: 10 }}>
+      <Box
+        sx={{
+          mt: 10,
+          py: { xs: 6, md: 10 },
+          px: 4,
+          background: "linear-gradient(to left bottom, #f359de, #d74edf, #b947e0, #9541e0, #6a3edf)",
+          textAlign: "center",
+          borderRadius: 3,
+          overflow: 'hidden',
+          position: "relative",
+          zIndex: 2, 
+        }}
+      >
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            sx={{
+              color: "white",
+              mb: 1,
+              fontSize: { xs: "1.6rem", md: "2rem" },
+            }}
+          >
+            Ready to Transform Your Workflow?
+          </Typography>
+      
+          <Typography
+            variant="body1"
+            sx={{
+              color: "white",
+              mb: 4,
+              fontSize: { xs: "0.95rem", md: "1.05rem" },
+            }}
+          >
+            Join thousands of teams already using our platform to achieve more.
+          </Typography>
+      
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: 2,
+            }}
+          >
+            <Box
+              component="button"
+              sx={{
+                px: 3,
+                py: 1.5,
+                fontWeight: "bold",
+                fontSize: "0.95rem",
+                color: "white",
+                background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+                borderRadius: 2,
+                border: "none",
+                cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #5f48ff 0%, #a040ff 100%)",
+                },
+              }}
+            >
+              Get Started Today
+            </Box>
+      
+            <Box
+              component="button"
+              sx={{
+                px: 3,
+                py: 1.5,
+                fontWeight: "bold",
+                fontSize: "0.95rem",
+                backgroundColor: "white",
+                color: "#1e1e2f",
+                borderRadius: 2,
+                border: "1px solid #ddd",
+                cursor: "pointer",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                "&:hover": {
+                  backgroundColor: "#f4f4f4",
+                },
+              }}
+            >
+              Schedule Demo
+            </Box>
+          </Box>
+      </Box>
       </Container>
     </Box>
   )

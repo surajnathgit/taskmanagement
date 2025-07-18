@@ -31,7 +31,7 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4} md={4}>
-            <FadeIn delay={0.3}>
+            <FadeIn delay={0.5}>
             <Box mb={3}>
               <Image
                 src=""

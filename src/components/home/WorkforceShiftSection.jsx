@@ -56,7 +56,8 @@ const WorkforceShiftSection = () => {
                       sx={{    background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
                                     WebkitBackgroundClip: "text",
                                     WebkitTextFillColor: "transparent",
-                       textAlign: 'center'}}
+                       textAlign: 'center',               fontSize: { xs: "1.8rem", sm: "2.4rem", md: "2.75rem" }
+}}
                     >
             Role Shifts Powered by Task Master
           </Typography>

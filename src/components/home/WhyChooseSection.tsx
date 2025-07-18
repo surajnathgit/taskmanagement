@@ -62,9 +62,10 @@ const WhyChooseSection = () => {
               background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              fontSize: { xs: "1.8rem", sm: "2.4rem", md: "2.75rem" }
             }}
           >
-            Why Choose Our Product
+            Why Choose Task Master?
           </Typography>
 
           <Typography
