@@ -215,11 +215,12 @@ const AboutSection = () => {
                   <Card
                     sx={{
                       background: "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(10px)",
                       color: "white",
                       borderRadius: 4,
                       border: "1px solid rgba(255,255,255,0.1)",
                       boxShadow: "0 8px 30px rgba(255, 255, 255, 0.08)",
-                      p:2
+                      p:2,
                     }}
                   >
                     <CardContent>

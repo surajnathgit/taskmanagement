@@ -215,7 +215,7 @@ const ProductDemoPage = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+            transition={{ duration: 0.9, delay: 0.4 , ease: "easeOut"}}
             viewport={{ once: true }}
           >
             <Box sx={{ textAlign: "center", mb: 2 }}>
@@ -265,13 +265,13 @@ const ProductDemoPage = () => {
               <Grid
                 key={index}
                 container
-                spacing={12}
+                spacing={6}
                 direction={{
                   xs: "column",
                   md: index % 2 === 0 ? "row" : "row-reverse",
                 }}
                 alignItems="center"
-                 mb={14}
+                mb={{ xs: 6, md: 12 }}
               >
                 {/* Text Section */}
                 <Grid item xs={12} md={6} sx={{ pl: { md: 6 } }}>
@@ -324,7 +324,7 @@ const ProductDemoPage = () => {
                       sx={{
                         mb: 2,
                         fontSize: {
-                          xs: "1.5rem", // Smaller on phones
+                          xs: "1.5rem", 
                           sm: "1.75rem",
                           md: "2.25rem",
                         },
@@ -401,10 +401,13 @@ const ProductDemoPage = () => {
                 {/* Image Section */}
                 <Grid item xs={12} md={6}>
                   <motion.div
-                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                     initial={{
+    opacity: 0,
+    x: index === 1 ? -100 : 100, // Step 2 (index 1) slides from left, others from right
+  }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.4,  ease: "easeOut" }}
                   >
                     <Box
                       sx={{
@@ -433,16 +436,17 @@ const ProductDemoPage = () => {
                         />
                         <Box sx={{ position: "relative", zIndex: 1 }}>
                           <motion.div
-    whileHover={{ scale: 1.05 }}
-    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    style={{ width: "100%" }}
-  >
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            style={{ width: "100%" }}
+                          >
                           <Image
                             src={step.img}
                             alt={step.heading}
                             width={3000}
                             height={1200}
                             quality={100}
+                            priority
                             style={{
                               width: "100%",
                               height: "auto",
@@ -463,7 +467,7 @@ const ProductDemoPage = () => {
         </Box>
 
         {/* Video Demo Section */}
-        <Container maxWidth="lg">
+        {/* <Container maxWidth="lg">
           <Box sx={{ mb: 12 }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -482,10 +486,10 @@ const ProductDemoPage = () => {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   fontSize: {
-      xs: "1.75rem", 
-      sm: "2rem",    
-      md: "2.5rem",  
-    },
+                    xs: "1.75rem", 
+                    sm: "2rem",    
+                    md: "2.5rem",  
+                  },
                 }}
               >
                 See Task Master in Action
@@ -495,9 +499,9 @@ const ProductDemoPage = () => {
                 textAlign="center"
                 mb={4}
                 sx={{ maxWidth: 600, mx: "auto",  fontSize: {
-      xs: "0.875rem", 
-      sm: "1rem",     
-    }, }}
+                  xs: "0.875rem", 
+                  sm: "1rem",     
+                } }}
               >
                Watch a quick overview of how Task Master boosts productivity and teamwork with AI-powered insights.
               </Typography>
@@ -538,10 +542,11 @@ const ProductDemoPage = () => {
                 ></iframe>
               </Box>
             </motion.div>
-          </Box>
+          </Box> */}
 
           {/* Key Features Section */}
-          <Box sx={{ mt: 12, mb: 12 }}>
+          <Container maxWidth="lg">
+          <Box sx={{ mb: 12 }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -559,10 +564,10 @@ const ProductDemoPage = () => {
                   WebkitTextFillColor: "transparent",
                   mb: 2,
                   fontSize: {
-      xs: "1.75rem", 
-      sm: "2rem",    
-      md: "2.5rem",  
-    },
+                    xs: "1.75rem", 
+                    sm: "2rem",    
+                    md: "2.5rem",  
+                  },
                 }}
               >
                 Key Features
@@ -572,9 +577,9 @@ const ProductDemoPage = () => {
                 textAlign="center"
                 mb={4}
                 sx={{ maxWidth: 700, mx: "auto", fontSize: {
-      xs: "0.9rem", 
-      sm: "1rem",     
-    }}}
+                  xs: "0.9rem", 
+                  sm: "1rem",     
+                }}}
               >
                 Your solution to Smarter Task Management
               </Typography>
@@ -681,10 +686,10 @@ const ProductDemoPage = () => {
                   WebkitTextFillColor: "transparent",
                   mb: 2,
                   fontSize: {
-      xs: "1.75rem", 
-      sm: "2rem",    
-      md: "2.5rem",  
-    },
+                    xs: "1.75rem", 
+                    sm: "2rem",    
+                    md: "2.5rem",  
+                  },
                 }}
               >
                 What Sets Task Master Apart?
@@ -694,9 +699,9 @@ const ProductDemoPage = () => {
                 textAlign="center"
                 mb={4}
                 sx={{ maxWidth: 700, mx: "auto", fontSize: {
-      xs: "0.875rem", 
-      sm: "1rem",     
-    } }}
+                  xs: "0.875rem", 
+                  sm: "1rem",     
+                } }}
               >
                 Discover how Task Master goes beyond basic task management to
                 simplify, automate, and elevate your workflow.

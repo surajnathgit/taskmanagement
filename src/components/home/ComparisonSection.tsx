@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, {useState} from "react";
 import {
   Box,
   Container,
@@ -11,11 +11,14 @@ import {
 import { motion } from "framer-motion";
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import ScheduleDemoModal from "../common/ScheduleDemoModal";
 
 const ComparisonSection = () => {
     const theme = useTheme();
-
+    const [demoOpen, setDemoOpen] = useState(false);
+    
   return (
+    <>
     <Box
       sx={{
         background: "linear-gradient(135deg, #1a1a40 0%, #2d1b69 100%)",
@@ -54,7 +57,7 @@ const ComparisonSection = () => {
               mx: "auto",
             }}
           >
-          An enterprise-ready solution that goes beyond task tracking — optimized for productivity and clarity.
+          The gap between doing tasks and mastering them — see the Task Master difference.
           </Typography>
           </motion.div>
         
@@ -97,7 +100,15 @@ const ComparisonSection = () => {
       <Typography fontWeight="bold" sx={{ mb: 1, color: "white" }}>
         Current Challenges:
       </Typography>
-      <ul style={{ paddingLeft: "1.2em", marginBottom: "1.5em", color: "rgba(255,255,255,0.85)" }}>
+      <Typography
+        component="ul"
+        variant="body1"
+        sx={{
+          pl: "1.2em",
+          mb: "1.5em",
+          color: "rgba(255,255,255,0.85)",
+        }}
+      >
         {[
           "Email-based task assignments",
           "Spreadsheet project tracking",
@@ -106,23 +117,26 @@ const ComparisonSection = () => {
           "Missed deadlines and deliverables",
           "Inefficient resource allocation",
         ].map((item, i) => (
-          <motion.li
-    key={i}
-    style={{
-      marginBottom: 6,
-      listStyleType: "disc",
-      color: "rgba(255,255,255,0.85)",
-      cursor: "default",
-    }}
-    whileHover={{
-      x: 6,
-      color: "#FFFFFF",
-      transition: { type: "tween", duration: 0.2 },
-    }}
-  >
-{item}</motion.li>
-        ))}
-      </ul>
+          <Typography
+      component={motion.li}
+      key={i}
+      variant="body1"
+      sx={{
+        mb: 1,
+        listStyleType: "disc",
+        color: "rgba(255,255,255,0.85)",
+        cursor: "default",
+      }}
+      whileHover={{
+        x: 6,
+        color: "#FFFFFF",
+        transition: { type: "tween", duration: 0.2 },
+      }}
+    >
+      {item}
+    </Typography>
+    ))}
+      </Typography>
 
       <Box
         sx={{
@@ -135,16 +149,32 @@ const ComparisonSection = () => {
         <Typography fontWeight="bold" sx={{ mb: 1, color: '#4E36FF' }}>
           Key Pain Points:
         </Typography>
-        <ul style={{ paddingLeft: "1.2em", color: "rgba(255,255,255,0.85)" }}>
+        <Typography
+        component="ul"
+        variant="body1"
+        sx={{
+          pl: "1.2em",
+          color: "rgba(255,255,255,0.85)",
+        }}
+      >
           {[
             "30% of projects miss deadlines",
             "Limited visibility into team capacity",
             "Frequent task conflicts and overlaps",
             "Manual status reporting overhead",
           ].map((point, i) => (
-            <li key={i} style={{ marginBottom: 6 }}>{point}</li>
+            <Typography
+      component={motion.li}
+      key={i}
+      variant="body1"
+      sx={{
+        mb: 1,
+      }}   
+    >
+      {point}
+    </Typography>
           ))}
-        </ul>
+        </Typography>
       </Box>
     </Paper>
     </motion.div>
@@ -188,7 +218,15 @@ const ComparisonSection = () => {
       <Typography fontWeight="bold" sx={{ mb: 1, color: "white" }}>
         New Capabilities:
       </Typography>
-      <ul style={{ paddingLeft: "1.2em", marginBottom: "1.5em", color: "rgba(255,255,255,0.85)" }}>
+      <Typography
+        component="ul"
+        variant="body1"
+        sx={{
+          pl: "1.2em",
+          mb: "1.5em",
+          color: "rgba(255,255,255,0.85)",
+        }}
+      >
         {[
           "Automated task assignment and prioritization",
           "Real-time project tracking and updates",
@@ -197,23 +235,26 @@ const ComparisonSection = () => {
           "Proactive deadline management",
           "Intelligent resource allocation",
         ].map((item, i) => (
-          <motion.li
-    key={i}
-    style={{
-      marginBottom: 6,
-      listStyleType: "disc",
-      color: "rgba(255,255,255,0.85)",
-      cursor: "default",
-    }}
-    whileHover={{
-      x: 6,
-      color: "#FFFFFF",
-      transition: { type: "tween", duration: 0.2 },
-    }}
-  >
-{item}</motion.li>
+          <Typography
+      component={motion.li}
+      key={i}
+      variant="body1"
+      sx={{
+        mb: 1,
+        listStyleType: "disc",
+        color: "rgba(255,255,255,0.85)",
+        cursor: "default",
+      }}
+      whileHover={{
+        x: 6,
+        color: "#FFFFFF",
+        transition: { type: "tween", duration: 0.2 },
+      }}
+    >
+      {item}
+    </Typography>        
         ))}
-      </ul>
+</Typography>
 
       <Box
         sx={{
@@ -226,16 +267,32 @@ const ComparisonSection = () => {
         <Typography fontWeight="bold" sx={{ mb: 1, color: "#7C3AED" }}>
           Achieved Improvements:
         </Typography>
-        <ul style={{ paddingLeft: "1.2em", color: "rgba(255,255,255,0.85)" }}>
+        <Typography
+        component="ul"
+        variant="body1"
+        sx={{
+          pl: "1.2em",
+          color: "rgba(255,255,255,0.85)",
+        }}
+      >
           {[
             "95% on-time project delivery",
             "Complete team capacity visibility",
             "Optimized task distribution",
             "Automated status reporting",
           ].map((point, i) => (
-            <li key={i} style={{ marginBottom: 6 }}>{point}</li>
+            <Typography
+      component={motion.li}
+      key={i}
+      variant="body1"
+      sx={{
+        mb: 1,
+      }}   
+    >
+      {point}
+    </Typography>
           ))}
-        </ul>
+        </Typography>
       </Box>
     </Paper>
     </motion.div>
@@ -244,6 +301,12 @@ const ComparisonSection = () => {
       </Container>
 
     <Container maxWidth="lg" sx={{ mt: 10 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
       <Box
         sx={{
           mt: 10,
@@ -292,7 +355,7 @@ const ComparisonSection = () => {
               component="button"
               sx={{
                 px: 3,
-                py: 1.5,
+                py: 2,
                 fontWeight: "bold",
                 fontSize: "0.95rem",
                 color: "white",
@@ -301,8 +364,10 @@ const ComparisonSection = () => {
                 border: "none",
                 cursor: "pointer",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                transition: "transform 0.2s ease, background 0.3s ease",
                 "&:hover": {
                   background: "linear-gradient(90deg, #5f48ff 0%, #a040ff 100%)",
+                  transform: "translateY(-3px)",                 
                 },
               }}
             >
@@ -313,7 +378,7 @@ const ComparisonSection = () => {
               component="button"
               sx={{
                 px: 3,
-                py: 1.5,
+                py: 2,
                 fontWeight: "bold",
                 fontSize: "0.95rem",
                 backgroundColor: "white",
@@ -322,17 +387,24 @@ const ComparisonSection = () => {
                 border: "1px solid #ddd",
                 cursor: "pointer",
                 boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                transition: "transform 0.2s ease, background 0.3s ease",
                 "&:hover": {
                   backgroundColor: "#f4f4f4",
+                  transform: "translateY(-3px)",                
                 },
               }}
+              onClick={() => setDemoOpen(true)}
             >
               Schedule Demo
             </Box>
           </Box>
       </Box>
+      </motion.div>
       </Container>
     </Box>
+
+        <ScheduleDemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
+    </>
   )
 }
 

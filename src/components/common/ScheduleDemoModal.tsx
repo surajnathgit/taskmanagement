@@ -321,12 +321,14 @@ PaperProps={{
               required
               variant="outlined"
               sx={FieldStyles}
-
             >
               <MenuItem value="IT">IT</MenuItem>
               <MenuItem value="Finance">Finance</MenuItem>
               <MenuItem value="Healthcare">Healthcare</MenuItem>
               <MenuItem value="Education">Education</MenuItem>
+              <MenuItem value="Manufacturing">Manufacturing</MenuItem>
+              <MenuItem value="Retail">Retail</MenuItem>
+              <MenuItem value="E-commerce">E-commerce</MenuItem>
               <MenuItem value="Other">Other</MenuItem>
             </TextField>
           </Grid>

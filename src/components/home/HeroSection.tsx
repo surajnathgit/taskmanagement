@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState}  from "react";
 import {
   Box,
   Container,
@@ -26,11 +26,14 @@ import SecurityIcon from "@mui/icons-material/Security";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import WorkIcon from "@mui/icons-material/Work";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import ScheduleDemoModal from "../common/ScheduleDemoModal";
 
 const HeroSection = () => {
   const theme = useTheme();
-
+  const [demoOpen, setDemoOpen] = useState(false);
+  
   return (
+    <>
     <Box
       sx={{
         minHeight: { xs: "60vh", sm: "70vh", md: "100vh" },
@@ -193,6 +196,7 @@ const HeroSection = () => {
                       transform: "scale(1.06)",
                     },
                   }}
+                  onClick={() => setDemoOpen(true)}
                 >
                   Book a Free Demo
                 </Button>
@@ -378,6 +382,9 @@ const HeroSection = () => {
         </Grid>
       </Container>
     </Box>
+
+    <ScheduleDemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
+    </>
   );
 };
 
