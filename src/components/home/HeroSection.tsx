@@ -127,7 +127,7 @@ const HeroSection = () => {
                 variant="h2"
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: "2.2rem", sm: "2.6rem", md: "3.5rem" },
+                  fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
                   textAlign: { xs: "center", sm: "left", md: "left" },
                   mb: 3,
                   background: "linear-gradient(90deg, #4E36FF, #FF6B6B)",
@@ -185,12 +185,12 @@ const HeroSection = () => {
                   color="primary"
                   size="large"
                   sx={{
-                    py: 1.5,
-                    px: 4,
+                    py: { xs: 1.1, sm: 1.2, md: 1.5 },
+                    px: { xs: 2.5, sm: 3.5, md: 4 },
                     borderRadius: "30px",
+                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
                     background: "linear-gradient(90deg, #4E36FF, #900BFF)",
                     color: "white",
-                    fontSize: "1.1rem",
                     transition: "transform 0.3s ease",
                     "&:hover": {
                       transform: "scale(1.06)",
@@ -211,12 +211,12 @@ const HeroSection = () => {
                   variant="outlined"
                   size="large"
                   sx={{
-                    py: 1.5,
-                    px: 4,
+                    py: { xs: 1.1, sm: 1.2, md: 1.5 },
+                    px: { xs: 2.5, sm: 3.5, md: 4 },
                     color: "white",
-                    fontSize: "1.1rem",
-                    borderColor: "rgba(255,255,255,0.3)",
                     borderRadius: "30px",
+                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
+                    borderColor: "rgba(255,255,255,0.3)",
                     transition: "transform 0.3s ease",
                     "&:hover": {
                       transform: "scale(1.06)",
@@ -233,11 +233,11 @@ const HeroSection = () => {
             {/* Trusted Companies Section */}
             <Box sx={{ mt: 4 }}>
               <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
-  viewport={{ once: true }}
->
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
               <Typography
                 variant="subtitle1"
                 sx={{
@@ -269,19 +269,19 @@ const HeroSection = () => {
               >
                 {[
                   { name: "BusinessPro", icon: WorkIcon, color: "#02B8FA" },
-  { name: "SecureNet", icon: SecurityIcon, color: "#AB0D9E" },
-  { name: "DataFlow", icon: FlashOnIcon, color: "#A666FF" },
-  { name: "HealthFirst", icon: FavoriteIcon, color: "#FF6B81" },
-  { name: "GlobalTech", icon: PublicIcon, color: "#4545DE" },
-                ].map((company, index) => (
-                  <motion.div
+                  { name: "SecureNet", icon: SecurityIcon, color: "#AB0D9E" },
+                  { name: "DataFlow", icon: FlashOnIcon, color: "#A666FF" },
+                  { name: "HealthFirst", icon: FavoriteIcon, color: "#FF6B81" },
+                  { name: "GlobalTech", icon: PublicIcon, color: "#4545DE" },
+                                ].map((company, index) => (
+                                  <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 40, scale: 0.9 }}
                                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{
                                       duration: 0.6,
-                                      delay: 1.2 + index * 0.2,
+                                      delay: 1.1 + index * 0.2,
                                       ease: "easeOut",
                                     }}
                                   >
@@ -335,45 +335,44 @@ const HeroSection = () => {
           </Grid>
 
           {/* Right Image Content */}
-          <Grid item xs={12} md={5} sx={{ position: "relative" }}>
+          <Grid item xs={12} md={5} sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mt: { xs: 3, sm: 4, md: 0 },
+          }}>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              transition={{ duration: 0.9, delay: 0.9 }}
+              viewport={{ once: true }}             
             >
               <Box
-  component={motion.div}
-  animate={{
-    y: [0, -6, 0],
-    rotateZ: [0, 0.8, 0, -0.8, 0],
-  }}
-  transition={{
-    duration: 6,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
-  sx={{
-    position: "relative",
-    width: "100%",
-    maxWidth: { xs: 320, sm: 400, md: 600 },
-    height: "auto",
-    mx: "auto",
-    aspectRatio: "4 / 3",
-  }}
->
+                component={motion.div}
+                animate={{
+                  y: [0, -6, 0],
+                  rotateZ: [0, 0.8, 0, -0.8, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                sx={{
+                  width: "100%",
+                  maxWidth: { xs: 320, sm: 400, md: 560 },
+                  height: "auto",
+                  mx: "auto",
+                }}
+              >
               <Box
                 component="img"
-                src="/images/hero-img.png"
+                src="/images/hero-img2.png"
                 alt="Task Master Preview"
                 sx={{
                   width: "100%",
                   height: "auto",
+                   objectFit: "contain"
                 }}
               />
               </Box>

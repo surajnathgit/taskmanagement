@@ -96,12 +96,12 @@ const WhyChooseSection = () => {
             ].map((point, index) => (
               <Grid item xs={12} sm={6} key={index} sx={{display: 'flex'}}>
                 <motion.div
-                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3*index }}
-                  viewport={{ once: true }}
-                  style={{width: "100%"}}
-                >
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true }}
+            style={{ width: "100%" }}
+          >
                 <Card
                   sx={{
                     background: "rgba(255, 255, 255, 0.05)",
@@ -140,7 +140,7 @@ const WhyChooseSection = () => {
         {/* Efficiency Gains & Impact */}
         <Box sx={{ mt: 8 }}>
           <motion.div
-            initial={{ opacity: 0, y: -40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
@@ -156,7 +156,7 @@ const WhyChooseSection = () => {
 
           <Grid container spacing={2} justifyContent="center">
             {impactData.map((item, index) => (
-              <Grid item xs={6} sm={3} key={index} sx={{ display: "flex" }}>
+              <Grid item xs={12} sm={6} md={3} key={index} sx={{ display: "flex" }}>
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 40, scale: 0.9 }}
@@ -180,12 +180,12 @@ const WhyChooseSection = () => {
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "flex-start",
-                      alignItems: "flex-start",
+                      alignItems: "center",
                       px: 1,
                       pt: 1,
                       pb: 1,
                       position: "relative",
-                      textAlign: "left",
+                      textAlign: "center",
                       color: "white",
                       boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
                       overflow: "hidden",

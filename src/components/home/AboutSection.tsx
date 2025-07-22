@@ -173,7 +173,7 @@ const AboutSection = () => {
 
           {/* Right: Mission and Vision cards */}
           <Grid item xs={12} md={6}>
-            <Grid container spacing={4} sx={{ mt: { xs:2, md:4} }}>
+            <Grid container spacing={4} sx={{ mt: {md:4} }}>
               <Grid item xs={12}>
                 <motion.div
                   initial={{ x: 100, opacity: 0 }}

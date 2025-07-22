@@ -45,6 +45,17 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 960 && mobileOpen) {
+      setMobileOpen(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, [mobileOpen]);
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -185,7 +196,6 @@ function Navbar() {
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        // ModalProps={{ keepMounted: true }}
         sx={{
           "& .MuiDrawer-paper": {
             width: "100%",

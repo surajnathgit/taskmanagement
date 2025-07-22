@@ -271,16 +271,18 @@ const ProductDemoPage = () => {
                   md: index % 2 === 0 ? "row" : "row-reverse",
                 }}
                 alignItems="center"
-                mb={{ xs: 6, md: 12 }}
+                mb={{
+                  xs: 6,
+                  md: index < steps.length - 1 ? 16 : 12,
+                }}
               >
                 {/* Text Section */}
                 <Grid item xs={12} md={6} sx={{ pl: { md: 6 } }}>
                   <motion.div
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: step.step === 1 ? 0.2 : 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
                   >
                     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                       {/* Icon box */}
@@ -317,7 +319,14 @@ const ProductDemoPage = () => {
                         </Typography>
                       </Box>
                     </Box>
-
+                    </motion.div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: step.step === 1 ? 0.35 : 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                    >
                     <Typography
                       variant="h3"
                       fontWeight={800}
@@ -332,7 +341,14 @@ const ProductDemoPage = () => {
                     >
                       {step.heading}
                     </Typography>
-
+                    </motion.div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: step.step === 1 ? 0.45 : 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                    >
                     <Typography
                       variant="body1"
                       color="#ffffffd1"
@@ -347,10 +363,18 @@ const ProductDemoPage = () => {
                     >
                       {step.description}
                     </Typography>
+                    </motion.div>
 
+                    {/* Features */}
                     <Grid container spacing={2}>
                       {step.features.map((feature, i) => (
                         <Grid item xs={12} sm={6} key={i}>
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4, delay: step.step === 1 ? 0.55 + i * 0.1 : i * 0.1}}
+                            viewport={{ once: true, amount: 0.4 }}
+                          >
                           <Box
                             sx={{
                               display: "flex",
@@ -370,8 +394,6 @@ const ProductDemoPage = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                // boxShadow: step.boxShadow,
-                                // mr: 2.5,
                               }}
                             >
                               {feature.icon}
@@ -392,22 +414,22 @@ const ProductDemoPage = () => {
                               {feature.text}
                             </Typography>
                           </Box>
+                          </motion.div>
                         </Grid>
                       ))}
                     </Grid>
-                  </motion.div>
                 </Grid>
 
                 {/* Image Section */}
                 <Grid item xs={12} md={6}>
                   <motion.div
                      initial={{
-    opacity: 0,
-    x: index === 1 ? -100 : 100, // Step 2 (index 1) slides from left, others from right
-  }}
+                     opacity: 0,
+                     x: index === 1 ? -100 : 100, 
+                    }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.4,  ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.25,  ease: "easeOut" }}
                   >
                     <Box
                       sx={{
