@@ -11,6 +11,7 @@ import {
   Card,
   CardContent,
   useTheme,
+  useMediaQuery
 } from "@mui/material";
 import { motion } from "framer-motion";
 import ParticleBackground from "../animations/ParticleBackground";
@@ -30,6 +31,7 @@ import ScheduleDemoModal from "../common/ScheduleDemoModal";
 
 const HeroSection = () => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [demoOpen, setDemoOpen] = useState(false);
   
   return (
@@ -273,18 +275,18 @@ const HeroSection = () => {
                   { name: "DataFlow", icon: FlashOnIcon, color: "#A666FF" },
                   { name: "HealthFirst", icon: FavoriteIcon, color: "#FF6B81" },
                   { name: "GlobalTech", icon: PublicIcon, color: "#4545DE" },
-                                ].map((company, index) => (
-                                  <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                      duration: 0.6,
-                                      delay: 1.1 + index * 0.2,
-                                      ease: "easeOut",
-                                    }}
-                                  >
+                    ].map((company, index) => (
+                    <motion.div
+                       key={index}
+                       initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                       viewport={{ once: true }}
+                       transition={{
+                       duration: 0.6,
+                       delay: 1 + index * 0.1,
+                       ease: "easeOut",
+                       }}
+                     >
                   <Box
                     key={index}
                     sx={{
@@ -344,7 +346,7 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.9 }}
+              transition={{ duration: 0.9,  delay: isSmallScreen ? 1.8 : 0.8 }}
               viewport={{ once: true }}             
             >
               <Box
@@ -367,7 +369,7 @@ const HeroSection = () => {
               >
               <Box
                 component="img"
-                src="/images/hero-img2.png"
+                src="/images/hero-img.png"
                 alt="Task Master Preview"
                 sx={{
                   width: "100%",

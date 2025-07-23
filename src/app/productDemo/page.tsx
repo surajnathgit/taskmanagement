@@ -141,11 +141,6 @@ const steps = [
   },
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const ProductDemoPage = () => {
   const theme = useTheme();
 
@@ -690,7 +685,7 @@ const ProductDemoPage = () => {
           </Box>
 
           {/* What Makes Us Different */}
-          <Box sx={{ mt: 12, mb: 6 }}>
+          <Box sx={{ mt: 16, mb: 6 }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

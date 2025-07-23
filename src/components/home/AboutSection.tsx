@@ -79,17 +79,21 @@ const AboutSection = () => {
           {/* Left: Title + Description + Stats */}
           <Grid item xs={12} md={6}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Typography 
-                variant="h6" 
+              <Typography
+                variant="h6"
                 fontWeight="bold"
-                sx={{background: "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
+                sx={{
+                  background:
+                    "linear-gradient(90deg, #4E36FF 0%, #900BFF 100%)",
                   WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent", mb:2}}
+                  WebkitTextFillColor: "transparent",
+                  mb: 2,
+                }}
               >
                 ABOUT US
               </Typography>
@@ -105,12 +109,19 @@ const AboutSection = () => {
               >
                 Reimagining the Way Teams Work
               </Typography>
-              
-              <Typography 
-                variant="body1" 
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Typography
+                variant="body1"
                 fontWeight="bold"
                 color="white"
-                sx={{fontSize: "1.1rem",}}
+                sx={{ fontSize: "1.1rem" }}
               >
                 Manage Smarter. Collaborate Faster
               </Typography>
@@ -121,38 +132,51 @@ const AboutSection = () => {
                   fontSize: "1rem",
                   lineHeight: 1.8,
                   mb: 4,
-                  color: 'white',
-                  textAlign:'justify'
+                  color: "white",
+                  textAlign: "justify",
                 }}
               >
-               Task Master isn’t just a tool — it’s a mindset shift for modern teams. With AI-powered suggestions, smart deadlines, and real-time coordination, it cuts through complexity to keep your projects aligned, your teams focused, and your goals on track — all in one intelligent platform.
+                Task Master isn’t just a tool — it’s a mindset shift for modern
+                teams. With AI-powered suggestions, smart deadlines, and
+                real-time coordination, it cuts through complexity to keep your
+                projects aligned, your teams focused, and your goals on track —
+                all in one intelligent platform.
               </Typography>
+            </motion.div>
 
-              <Grid container spacing={3}>
-                {stats.map((item, i) => (
-                  <Grid item xs={12} sm={4} key={item.label} sx={{display:'flex'}}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 + i * 0.2 }}
-                      viewport={{ once: true }}
-                      style={{width:'100%'}}
+            <Grid container spacing={3}>
+              {stats.map((item, i) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={4}
+                  key={item.label}
+                  sx={{ display: "flex" }}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.2 }}
+                    viewport={{ once: true }}
+                    style={{ width: "100%" }}
+                  >
+                    <Card
+                      sx={{
+                        background: "rgba(255, 255, 255, 0.05)",
+                        backdropFilter: "blur(10px)",
+                        borderRadius: 3,
+                        width: "100%",
+                        height: "100%",
+                        textAlign: "center",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        boxShadow: "0 4px 20px rgba(255, 255, 255, 0.05)",
+                        color: "white",
+                      }}
                     >
-                      <Card
-                        sx={{
-                          background: "rgba(255, 255, 255, 0.05)",
-                          backdropFilter: "blur(10px)",
-                          borderRadius: 3,
-                          width:'100%',
-                          height:'100%',
-                          textAlign: "center",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                          boxShadow: "0 4px 20px rgba(255, 255, 255, 0.05)",
-                          color: "white",
-                        }}
-                      >
-                        <CardContent sx={{flexGrow: 1}}>
-                        <Box sx={{color: theme.palette.primary.main}}>{item.icon}</Box>
+                      <CardContent sx={{ flexGrow: 1 }}>
+                        <Box sx={{ color: theme.palette.primary.main }}>
+                          {item.icon}
+                        </Box>
                         <Typography variant="h5" fontWeight="bold">
                           {item.value}
                         </Typography>
@@ -162,18 +186,17 @@ const AboutSection = () => {
                         >
                           {item.label}
                         </Typography>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  </Grid>
-                ))}
-              </Grid>
-            </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
           </Grid>
 
           {/* Right: Mission and Vision cards */}
           <Grid item xs={12} md={6}>
-            <Grid container spacing={4} sx={{ mt: {md:4} }}>
+            <Grid container spacing={4} sx={{ mt: { md: 4 } }}>
               <Grid item xs={12}>
                 <motion.div
                   initial={{ x: 100, opacity: 0 }}
@@ -183,21 +206,24 @@ const AboutSection = () => {
                   viewport={{ once: true }}
                 >
                   <Card
-                  elevation={2}
+                    elevation={2}
                     sx={{
                       background: "linear-gradient(135deg, #5B2EFF, #A349FF)",
                       color: "white",
                       borderRadius: 4,
                       boxShadow: "0 8px 30px rgba(144, 11, 255, 0.4)",
-                      p:2
+                      p: 2,
                     }}
                   >
                     <CardContent>
-                      <Typography variant="h6" fontWeight="bold" sx={{mb:2}}>
+                      <Typography variant="h6" fontWeight="bold" sx={{ mb: 2 }}>
                         Our Mission
                       </Typography>
                       <Typography variant="body1">
-                      To simplify project management by providing teams with intelligent, intuitive tools that drive clarity, focus, and collaboration — so they can spend less time organizing work and more time creating impact.                      
+                        To simplify project management by providing teams with
+                        intelligent, intuitive tools that drive clarity, focus,
+                        and collaboration — so they can spend less time
+                        organizing work and more time creating impact.
                       </Typography>
                     </CardContent>
                   </Card>
@@ -220,19 +246,19 @@ const AboutSection = () => {
                       borderRadius: 4,
                       border: "1px solid rgba(255,255,255,0.1)",
                       boxShadow: "0 8px 30px rgba(255, 255, 255, 0.08)",
-                      p:2,
+                      p: 2,
                     }}
                   >
                     <CardContent>
-                      <Typography variant="h6" fontWeight="bold" sx={{mb:2}}>
+                      <Typography variant="h6" fontWeight="bold" sx={{ mb: 2 }}>
                         Our Vision
                       </Typography>
                       <Typography variant="body1">
-                      We envision a world where teams operate in perfect sync —
-                    where technology fades into the background & managing
-                    tasks becomes effortless. Task Master is our step toward
-                    building that future.                      
-                    </Typography>
+                        We envision a world where teams operate in perfect sync
+                        — where technology fades into the background & managing
+                        tasks becomes effortless. Task Master is our step toward
+                        building that future.
+                      </Typography>
                     </CardContent>
                   </Card>
                 </motion.div>
