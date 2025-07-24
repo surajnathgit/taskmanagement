@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
+import { Facebook, LinkedIn, Instagram } from "@mui/icons-material";
 import XIcon from '@mui/icons-material/X';
 import FadeIn from "../animations/FadeIn";
 
@@ -40,7 +40,7 @@ const Footer = () => {
                 height={50}
               />
             </Box>
-            <Typography variant="body2" color="grey.400" sx={{ mb: 3, textAlign: "justify" }}>
+            <Typography variant="body2" color="grey.400" sx={{ mb: 3 }}>
               Task Master is an AI-powered project management platform that helps teams plan, prioritize, and collaborate efficiently — all in one streamlined workspace.
             </Typography>
             <Box display="flex" gap={1}>

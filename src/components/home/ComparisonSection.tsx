@@ -79,12 +79,12 @@ const ComparisonSection = () => {
   sx={{
     background: "linear-gradient(135deg, rgba(78,54,255,0.08), rgba(78,54,255,0.05))",
     border: "1px solid rgba(78,54,255,0.25)",
-    borderRadius: 3,
+    borderRadius: 4,
     p: 3,
     height: "100%",
     boxShadow: "0 4px 20px rgba(78,54,255,0.1)",
     overflow: 'hidden',
-    textAlign: "left"
+    textAlign: "left",
   }}
 >
   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
@@ -141,7 +141,7 @@ const ComparisonSection = () => {
       <Box
         sx={{
           backgroundColor: "rgba(120, 87, 255, 0.07)",
-          borderRadius: 2,
+          borderRadius: 3,
           p: 2.5,
           overflow: 'hidden',
         }}
@@ -197,7 +197,7 @@ const ComparisonSection = () => {
   sx={{
     background: "linear-gradient(135deg, rgba(124,58,237,0.08), rgba(124,58,237,0.05))",
     border: "1px solid rgba(124,58,237,0.25)",
-    borderRadius: 3,
+    borderRadius: 4,
     p: 3,
     height: "100%",
     boxShadow: "0 4px 20px rgba(124,58,237,0.1)",
@@ -259,7 +259,7 @@ const ComparisonSection = () => {
       <Box
         sx={{
           backgroundColor: "rgba(97, 195, 255, 0.07)",
-          borderRadius: 2,
+          borderRadius: 3,
           p: 2.5,
           overflow: 'hidden',
         }}

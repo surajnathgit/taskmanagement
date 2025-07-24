@@ -395,7 +395,7 @@ PaperProps={{
                   checked={formData.consent}
                   onChange={handleCheckboxChange}
               />}
-              label="I agree to be contacted by TaskMaster for demo and updates"
+              label="I agree to be contacted by Task Master for demo and updates"
               required
             />
           </Grid>

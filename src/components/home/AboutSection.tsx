@@ -10,26 +10,24 @@ import {
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import GroupsIcon from "@mui/icons-material/Groups";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
+import {Groups, RocketLaunch, SmartToy } from "@mui/icons-material";
 
 const AboutSection = () => {
   const theme = useTheme();
 
   const stats = [
     {
-      icon: <GroupsIcon sx={{ fontSize: 32 }} />,
+      icon: <Groups sx={{ fontSize: 32 }} />,
       value: "20K+",
       label: "Teams Empowered",
     },
     {
-      icon: <RocketLaunchIcon sx={{ fontSize: 32 }} />,
+      icon: <RocketLaunch sx={{ fontSize: 32 }} />,
       value: "45%",
       label: "Productivity Boost",
     },
     {
-      icon: <SmartToyIcon sx={{ fontSize: 32 }} />,
+      icon: <SmartToy sx={{ fontSize: 32 }} />,
       value: "1M+",
       label: "Tasks Automated by AI",
     },
@@ -133,7 +131,6 @@ const AboutSection = () => {
                   lineHeight: 1.8,
                   mb: 4,
                   color: "white",
-                  textAlign: "justify",
                 }}
               >
                 Task Master isn’t just a tool — it’s a mindset shift for modern

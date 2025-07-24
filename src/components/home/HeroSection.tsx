@@ -7,26 +7,12 @@ import {
   Typography,
   Button,
   Stack,
-  Paper,
-  Card,
-  CardContent,
   useTheme,
   useMediaQuery
 } from "@mui/material";
 import { motion } from "framer-motion";
+import {Bolt, Work, Security, FlashOn, Public, Favorite } from "@mui/icons-material";
 import ParticleBackground from "../animations/ParticleBackground";
-import BoltIcon from "@mui/icons-material/Bolt"; 
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import GroupsIcon from '@mui/icons-material/Groups';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import LoopIcon from '@mui/icons-material/Loop';
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
-import PublicIcon from "@mui/icons-material/Public";
-import SecurityIcon from "@mui/icons-material/Security";
-import FlashOnIcon from "@mui/icons-material/FlashOn";
-import WorkIcon from "@mui/icons-material/Work";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ScheduleDemoModal from "../common/ScheduleDemoModal";
 
 const HeroSection = () => {
@@ -99,9 +85,10 @@ const HeroSection = () => {
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     mb: 2,
+                    
                   }}
                 >
-                  <BoltIcon
+                  <Bolt
                     sx={{ fontSize: 18, color: "#A666FF", flexShrink: 0 }}
                   />
                   <Box
@@ -156,7 +143,6 @@ const HeroSection = () => {
                   opacity: 0.9,
                   textAlign: { xs: "center", sm:"left", md: "left" },
                   maxWidth: { xs: "100%", sm: "80%", md: "90%" },
-                  // mx: "auto",
                 }}
               >
                 Streamline your team’s productivity with Task Master — featuring
@@ -189,13 +175,15 @@ const HeroSection = () => {
                   sx={{
                     py: { xs: 1.1, sm: 1.2, md: 1.5 },
                     px: { xs: 2.5, sm: 3.5, md: 4 },
-                    borderRadius: "30px",
                     fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
                     background: "linear-gradient(90deg, #4E36FF, #900BFF)",
                     color: "white",
+                    borderRadius: "30px",
+                    boxShadow: "0 4px 14px rgba(78, 54, 255, 0.4)",
                     transition: "transform 0.3s ease",
                     "&:hover": {
                       transform: "scale(1.06)",
+                      boxShadow: "0 6px 20px rgba(78, 54, 255, 0.6)",
                     },
                   }}
                   onClick={() => setDemoOpen(true)}
@@ -211,13 +199,14 @@ const HeroSection = () => {
               >
                 <Button
                   variant="outlined"
+                  color="primary"
                   size="large"
                   sx={{
                     py: { xs: 1.1, sm: 1.2, md: 1.5 },
                     px: { xs: 2.5, sm: 3.5, md: 4 },
+                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
                     color: "white",
                     borderRadius: "30px",
-                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
                     borderColor: "rgba(255,255,255,0.3)",
                     transition: "transform 0.3s ease",
                     "&:hover": {
@@ -270,11 +259,11 @@ const HeroSection = () => {
                 }}
               >
                 {[
-                  { name: "BusinessPro", icon: WorkIcon, color: "#02B8FA" },
-                  { name: "SecureNet", icon: SecurityIcon, color: "#AB0D9E" },
-                  { name: "DataFlow", icon: FlashOnIcon, color: "#A666FF" },
-                  { name: "HealthFirst", icon: FavoriteIcon, color: "#FF6B81" },
-                  { name: "GlobalTech", icon: PublicIcon, color: "#4545DE" },
+                  { name: "BusinessPro", icon: Work, color: "#02B8FA" },
+                  { name: "SecureNet", icon: Security, color: "#AB0D9E" },
+                  { name: "DataFlow", icon: FlashOn, color: "#A666FF" },
+                  { name: "HealthFirst", icon: Favorite, color: "#FF6B81" },
+                  { name: "GlobalTech", icon: Public, color: "#4545DE" },
                     ].map((company, index) => (
                     <motion.div
                        key={index}
@@ -318,6 +307,7 @@ const HeroSection = () => {
                     >
                       <company.icon sx={{ color: company.color, fontSize: 28 }} />
                     </Box>
+                    
                     <Typography
                       variant="body2"
                       sx={{

@@ -10,12 +10,7 @@ import {
   useTheme
 } from "@mui/material";
 import { motion } from "framer-motion";
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import PhotoCameraBackOutlinedIcon from '@mui/icons-material/PhotoCameraBackOutlined';
-import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
-import PublicIcon from '@mui/icons-material/Public';
-import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
+import {RocketLaunch, PhotoCameraBackOutlined, BusinessCenterOutlined, Public, HandshakeOutlined, Diversity3 } from "@mui/icons-material";
 
 const WhoIsProductFor = () => {
   const theme = useTheme();
@@ -24,32 +19,32 @@ const WhoIsProductFor = () => {
     {
   title: "Startups & Growing Teams",
   desc: "Keeps teams organized, on time, and scaling fast.",
-  icon: <RocketLaunchIcon fontSize="medium" />,
+  icon: <RocketLaunch fontSize="medium" />,
 },
 {
   title: "Agencies & Creative Firms",
   desc: "Simplifies collaboration, sharing, and project tracking.",
-    icon: <PhotoCameraBackOutlinedIcon fontSize="medium" />,
+    icon: <PhotoCameraBackOutlined fontSize="medium" />,
 },
 {
   title: "Enterprise Project Managers",
   desc: "Manages workflows and automates tasks at scale.",
-    icon: <BusinessCenterOutlinedIcon fontSize="medium" />,
+    icon: <BusinessCenterOutlined fontSize="medium" />,
 },
 {
   title: "Remote & Hybrid Teams",
   desc: "Enables real-time collaboration across time zones.",
-    icon: <PublicIcon fontSize="medium" />,
+    icon: <Public fontSize="medium" />,
 },
 {
   title: "Freelancers & Consultants",
   desc: "All-in-one space for client work and deadlines.",
-    icon: <HandshakeOutlinedIcon fontSize="medium" />,
+    icon: <HandshakeOutlined fontSize="medium" />,
 },
 {
   title: "Community Groups",
   desc: "Helps organize volunteers and track impact.",
-    icon: <Diversity3Icon fontSize="medium" />,
+    icon: <Diversity3 fontSize="medium" />,
 }
   ];
 
