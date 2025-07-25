@@ -264,7 +264,7 @@ const KeyFeaturesSection = () => {
                     display: "flex",
                     flexDirection: "column",
                     backdropFilter: "blur(10px)",
-                    transition: "transform 0.3s, box-shadow 0.3s, border 0.3s",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease",
                     overflow: "hidden",
                     border: "2px solid transparent",
                     '&:hover': {

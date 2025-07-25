@@ -107,7 +107,6 @@ const WhyChooseSection = () => {
                     background: "rgba(255, 255, 255, 0.05)",
                     borderRadius: 3,
                     px: 2,
-                    // py: 2.5,
                     height: "100%",
                     width:"100%",
                     borderLeft: "5px solid #4E36FF",
@@ -116,8 +115,6 @@ const WhyChooseSection = () => {
                     justifyContent: "flex-start",
                     textAlign: "left",
                     transition: "all 0.3s ease",
-                    transform: "translateX(0)",
-                    boxShadow: "none",
                     "&:hover": {
                       transform: "translateX(6px)",
                       boxShadow: "0 8px 20px rgba(127, 91, 255, 0.2)", 
@@ -172,8 +169,8 @@ const WhyChooseSection = () => {
                   <Card
                     sx={{
                       background: "rgba(255, 255, 255, 0.05)",
-                      backdropFilter: "blur(6px)",
-                      WebkitBackdropFilter: "blur(6px)",
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
                       borderRadius: 3,
                       width: "100%",
                       height: "100%",
@@ -187,12 +184,12 @@ const WhyChooseSection = () => {
                       position: "relative",
                       textAlign: "center",
                       color: "white",
-                      boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
+                      boxShadow: `0 4px 16px rgba(0,0,0,0.25), 0 0 10px ${theme.palette.primary.main}15`,
                       overflow: "hidden",
                       transition: "transform 0.3s ease, box-shadow 0.3s ease",
                       "&:hover": {
                         transform: "translateY(-5px)",
-                        boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
+                        boxShadow: `0 10px 30px rgba(0,0,0,0.3), 0 0 20px ${theme.palette.primary.main}55`
                       },
                       // Animated left border using ::before
                       "&::before": {
@@ -202,10 +199,11 @@ const WhyChooseSection = () => {
                         left: 0,
                         width: "4px",
                         height: 0,
-                        backgroundColor: theme.palette.primary.main,
+                        background: "linear-gradient(180deg, #4E36FF, #FF6B6B)",
                         transition: "height 0.5s ease-in-out",
                         borderTopLeftRadius: 8,
                         borderBottomLeftRadius: 8,
+                        zIndex: 1
                       },
                       "&:hover::before": {
                         height: "100%",

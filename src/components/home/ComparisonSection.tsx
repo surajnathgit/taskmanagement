@@ -66,27 +66,27 @@ const ComparisonSection = () => {
   <Grid item xs={12} md={6}>
     <motion.div
     initial={{ opacity: 0, x: -40 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  whileHover={{
-    y: -8,
-    boxShadow: "0px 10px 30px rgba(78, 54, 255, 0.2)",
-    transition: { duration: 0.3 },
-  }}
-  transition={{ duration: 0.8, delay: 0.1 }}
-  viewport={{ once: true }}
-  >
+    whileInView={{ opacity: 1, x: 0 }}
+    whileHover={{
+      y: -8,
+      boxShadow: "0px 10px 30px rgba(78, 54, 255, 0.2)",
+      transition: { duration: 0.3 },
+    }}
+    transition={{ duration: 0.8, delay: 0.1 }}
+    viewport={{ once: true }}
+    >
     <Paper
-  sx={{
-    background: "linear-gradient(135deg, rgba(78,54,255,0.08), rgba(78,54,255,0.05))",
-    border: "1px solid rgba(78,54,255,0.25)",
-    borderRadius: 4,
-    p: 3,
-    height: "100%",
-    boxShadow: "0 4px 20px rgba(78,54,255,0.1)",
-    overflow: 'hidden',
-    textAlign: "left",
-  }}
->
+      sx={{
+        background: "linear-gradient(135deg, rgba(78,54,255,0.08), rgba(78,54,255,0.05))",
+        border: "1px solid rgba(78,54,255,0.25)",
+        borderRadius: 4,
+        p: 3,
+        height: "100%",
+        boxShadow: "0 4px 20px rgba(78,54,255,0.1)",
+        overflow: 'hidden',
+        textAlign: "left",
+      }}
+    >
   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
   <WarningAmberRoundedIcon sx={{ color: "#4E36FF", mr: 1, fontSize: 28 }} />
   <Typography variant="h5" fontWeight="bold" sx={{ color: "#4E36FF" }}>
@@ -364,7 +364,7 @@ const ComparisonSection = () => {
                 border: "none",
                 cursor: "pointer",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                transition: "transform 0.2s ease, background 0.3s ease",
+                transition: "transform 0.3s ease, background 0.3s ease",
                 "&:hover": {
                   background: "linear-gradient(90deg, #5f48ff 0%, #a040ff 100%)",
                   transform: "translateY(-3px)",                 
@@ -387,7 +387,7 @@ const ComparisonSection = () => {
                 border: "1px solid #ddd",
                 cursor: "pointer",
                 boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                transition: "transform 0.2s ease, background 0.3s ease",
+                transition: "transform 0.3s ease,  background-color 0.3s ease",
                 "&:hover": {
                   backgroundColor: "#f4f4f4",
                   transform: "translateY(-3px)",                

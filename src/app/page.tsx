@@ -1,16 +1,24 @@
+"use client";
 import { Box } from '@mui/material';
-import dynamic from 'next/dynamic';
+import { useEffect } from "react";
 
-// Non-SSR components
-const HeroSection = dynamic(() => import('@/components/home/HeroSection'), { ssr: false });
-const AboutSection = dynamic(() => import('@/components/home/AboutSection'), { ssr: false });
-const WorkforceShiftSection = dynamic(() => import('@/components/home/WorkforceShiftSection'), { ssr: false });
-const FeaturesSection = dynamic(() => import('@/components/home/FeaturesSection'), { ssr: false });
-const WhyChooseSection = dynamic(() => import('@/components/home/WhyChooseSection'), { ssr: false });
-const ComparisonSection = dynamic(() => import('@/components/home/ComparisonSection'), { ssr: false });
-const WhoIsProductFor = dynamic(() => import('@/components/home/WhoIsProductFor'), { ssr: false });
+import HeroSection from '@/components/home/HeroSection';
+import AboutSection from '@/components/home/AboutSection';
+import WorkforceShiftSection from '@/components/home/WorkforceShiftSection';
+import FeaturesSection from '@/components/home/FeaturesSection';
+import WhyChooseSection from '@/components/home/WhyChooseSection';
+import ComparisonSection from '@/components/home/ComparisonSection';
+import WhoIsProductFor from '@/components/home/WhoIsProductFor';
 
 export default function Home() {
+
+  useEffect(() => {
+    // Disable browser scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return (
     <Box component="main">
       <HeroSection />
@@ -23,3 +31,4 @@ export default function Home() {
     </Box>
   );
 }
+

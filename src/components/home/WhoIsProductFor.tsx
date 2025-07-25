@@ -109,8 +109,8 @@ const WhoIsProductFor = () => {
                       width: '100%',
                       display: "flex",
                       flexDirection: "column",
-                      // alignItems: "flex-start",
                       px: 1,
+                      transition: "box-shadow 0.3 ease",
                       '&:hover': {
                         boxShadow: '0 6px 24px rgba(10, 10, 10, 0.34)',
                       },

@@ -454,7 +454,7 @@ const ProductDemoPage = () => {
                         <Box sx={{ position: "relative", zIndex: 1 }}>
                           <motion.div
                             whileHover={{ scale: 1.05 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            transition={{ duration: 0.4, ease: 'easeInOut'}}
                             style={{ width: "100%" }}
                           >
                           <Image
@@ -468,7 +468,7 @@ const ProductDemoPage = () => {
                               width: "100%",
                               height: "auto",
                               transform: "scale(1)",
-                              transformOrigin: "center", // keep it centered
+                              transformOrigin: "center", 
                               objectFit: "cover",
                             }}
                           />
@@ -613,9 +613,9 @@ const ProductDemoPage = () => {
                   sx={{ display: "flex" }}
                 >
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true }}
                     style={{ width: "100%" }}
                   >
@@ -782,7 +782,7 @@ const ProductDemoPage = () => {
                         delay: 0.2 + Math.floor(index / 3) * 0.2,
                         ease: "easeOut",
                       }}
-                      whileHover={{ scale: 1.03 }}
+                      whileHover={{ scale: 1.04 }}
                       style={{ width: "100%", transformOrigin: "center" }}
                     >
                       <Card
@@ -799,9 +799,10 @@ const ProductDemoPage = () => {
                           alignItems: "center",
                           justifyContent: "flex-start",
                           transition:
-                            "transform 0.3s ease, box-shadow 0.3s ease",
+                            "transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease",
                           "&:hover": {
                             boxShadow: "0 6px 24px rgba(10, 10, 10, 0.34)",
+                            transform: "translateY(-2px)",
                           },
                           "&:hover .description": {
                             color: "white",

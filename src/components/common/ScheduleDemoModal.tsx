@@ -145,7 +145,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   try {
     const response = await axios.post(
-      "https://api.recruitexe.com/v1/api/demo/createBookDemo",
+      `${process.env.NEXT_PUBLIC_API_URL}/demo/createBookDemo`,
       payload,
       {
         headers: {
@@ -401,37 +401,39 @@ PaperProps={{
           </Grid>
         </Grid>
       </DialogContent>
+
       <DialogActions sx={{ px: 3, pb: 4, pt:3 }}>
         <Button
-  variant="contained"
-  type="submit"
-  fullWidth
-  disabled={loading}
-  sx={{
-    py: 1.6,
-    fontWeight: 'bold',
-    fontSize: '1.1rem',
-    borderRadius: 4,
-    background: 'linear-gradient(to right, #7f00ff, #e100ff)', 
-    color: '#fff',
-    boxShadow: '0px 0px 12px rgba(128, 0, 255, 0.4)',
-    '&:hover': {
-      background: 'linear-gradient(to right, #7200e6, #c700e6)',
-      boxShadow: '0px 0px 16px rgba(128, 0, 255, 0.6)',
-    },
-  }}
->
-  {loading ? (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-      <CircularProgress size={18} sx={{ color: "#fff", fontWeight: 'bold' }} />
-      <Typography variant="body2" sx={{ color: "#fff", fontSize: '1.1rem', fontWeight: 'bold' }}>
-        Booking Demo...
-      </Typography>
-    </Box>
-  ) : (
-    "Book Demo"
-  )}
-</Button>
+          variant="contained"
+          type="submit"
+          fullWidth
+          disabled={loading}
+          sx={{
+            py: 1.6,
+            fontWeight: 'bold',
+            fontSize: '1.1rem',
+            borderRadius: 4,
+            background: 'linear-gradient(to right, #7f00ff, #e100ff)', 
+            color: '#fff',
+            boxShadow: '0px 0px 12px rgba(128, 0, 255, 0.4)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: 'linear-gradient(to right, #7200e6, #c700e6)',
+              boxShadow: '0px 0px 16px rgba(128, 0, 255, 0.6)',
+            },
+          }}
+        >
+        {loading ? (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <CircularProgress size={18} sx={{ color: "#fff", fontWeight: 'bold' }} />
+            <Typography variant="body2" sx={{ color: "#fff", fontSize: '1.1rem', fontWeight: 'bold' }}>
+              Booking Demo...
+            </Typography>
+          </Box>
+        ) : (
+          "Book Demo"
+        )}
+      </Button>
 
       </DialogActions>
       </form>
@@ -442,12 +444,12 @@ PaperProps={{
       open={successDialogOpen} 
       onClose={() => setSuccessDialogOpen(false)}
       componentsProps={{
-    backdrop: {
-      sx: {
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        backdropFilter: 'blur(10px)',
+      backdrop: {
+        sx: {
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backdropFilter: 'blur(10px)',
+        },
       },
-    },
   }}>
     <Box
       sx={{

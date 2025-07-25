@@ -59,7 +59,7 @@ const HeroSection = () => {
               <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               >
               <Box
                 sx={{
@@ -73,7 +73,7 @@ const HeroSection = () => {
                     alignItems: "center",
                     gap: 1,
                     px: { xs: 1.5, sm: 2 },
-                    py: { xs: 0.4, sm: 0.6 },
+                    py: { xs: 0.4, sm: 0.5 },
                     borderRadius: "50px",
                     fontSize: { xs: "0.72rem", sm: "0.82rem", md: "0.9rem" },
                     fontWeight: 600,
@@ -85,7 +85,7 @@ const HeroSection = () => {
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     mb: 2,
-                    
+                    boxShadow: `0 4px 12px #4E36FF22`, 
                   }}
                 >
                   <Bolt
@@ -109,7 +109,7 @@ const HeroSection = () => {
               <motion.div
               initial={{ opacity: 0, scale: 1.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true }}
             >
               <Typography
@@ -131,7 +131,7 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
               <Typography
                 variant="h6"
@@ -166,7 +166,7 @@ const HeroSection = () => {
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 <Button
                   variant="contained"
@@ -180,7 +180,7 @@ const HeroSection = () => {
                     color: "white",
                     borderRadius: "30px",
                     boxShadow: "0 4px 14px rgba(78, 54, 255, 0.4)",
-                    transition: "transform 0.3s ease",
+                    transition: "transform 0.3s ease, box-shadow 0.3 ease",
                     "&:hover": {
                       transform: "scale(1.06)",
                       boxShadow: "0 6px 20px rgba(78, 54, 255, 0.6)",
@@ -195,7 +195,7 @@ const HeroSection = () => {
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.3, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
               >
                 <Button
                   variant="outlined"
@@ -208,7 +208,9 @@ const HeroSection = () => {
                     color: "white",
                     borderRadius: "30px",
                     borderColor: "rgba(255,255,255,0.3)",
-                    transition: "transform 0.3s ease",
+                    transition: "transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease",
+                    transformOrigin: "center",
+                    willChange: "transform",
                     "&:hover": {
                       transform: "scale(1.06)",
                       borderColor: "white",
@@ -226,7 +228,7 @@ const HeroSection = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
               <Typography
@@ -237,8 +239,6 @@ const HeroSection = () => {
                   mb: 3,
                   fontSize: "1rem",
                   textAlign: { xs: "center", sm: "left", md: "left" },
-                  // position: "relative",
-                  // pl: 1,
                 }}
               >
                 Trusted by 5,000+ teams across industries
@@ -272,7 +272,7 @@ const HeroSection = () => {
                        viewport={{ once: true }}
                        transition={{
                        duration: 0.6,
-                       delay: 1 + index * 0.1,
+                       delay: 0.7 + index * 0.1,
                        ease: "easeOut",
                        }}
                      >
@@ -294,15 +294,17 @@ const HeroSection = () => {
                         border: "1px solid rgba(255,255,255,0.06)",
                         backdropFilter: "blur(6px)",
                         borderRadius: "50%",
-                        p: 1.5,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        boxShadow: `0 4px 12px ${company.color}44`, 
                         mx: "auto",
                         mb: 1,
-                        width: 40,
-                        height: 40,
-                        transition: "all 0.3s ease",
+                        width: 48,    
+                        height: 48,
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                        transformOrigin: "center",
+                        willChange: "transform",
                       }}
                     >
                       <company.icon sx={{ color: company.color, fontSize: 28 }} />
@@ -342,11 +344,11 @@ const HeroSection = () => {
               <Box
                 component={motion.div}
                 animate={{
-                  y: [0, -6, 0],
+                  y: [0, -12, 0],
                   rotateZ: [0, 0.8, 0, -0.8, 0],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 4.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}

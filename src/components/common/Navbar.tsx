@@ -62,6 +62,7 @@ function Navbar() {
 
   return (
     <>
+    
       <AppBar
         position="fixed"
         elevation={0}
@@ -76,6 +77,11 @@ function Navbar() {
           zIndex: 1200,
         }}
       >
+        <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+    >
         <Container maxWidth="xl">
           <Toolbar
             disableGutters
@@ -189,6 +195,7 @@ function Navbar() {
             </Box>
           </Toolbar>
         </Container>
+      </motion.div>
       </AppBar>
 
       {/* Mobile Drawer */}
