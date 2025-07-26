@@ -228,11 +228,11 @@ const Footer = () => {
                 Contact Us
               </Typography>
               <Link
-                href="mailto:fintech@fincoopers.in"
+                href="mailto:taskmaster@fincoopers.in"
                 style={{ textDecoration: "none" }}
               >
                 <Typography variant="body2" color="grey.400">
-                  Email: 
+                  Email: taskmaster@fincoopers.in
                 </Typography>
               </Link>
               {/* <Link href="tel:+919302075637" style={{ textDecoration: "none" }}>

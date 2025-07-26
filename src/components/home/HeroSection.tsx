@@ -24,13 +24,14 @@ const HeroSection = () => {
     <>
     <Box
       sx={{
-        minHeight: { xs: "60vh", sm: "70vh", md: "100vh" },
+        minHeight: { xs: "60vh", sm: "70vh", lg: "100vh" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        p: { xs: 2, sm: 3, md: 4 },
-        pt: { xs: 8, sm: 6, md: 10 },
-        pb: { xs: 6, sm: 6, md: 10 },
+        pl: { xs: 2, sm: 3, lg: 4 },
+        pr: { xs: 2, sm: 3, lg: 4 },
+        pt: { xs: 5, sm: 6, lg: 10 },
+        pb: { xs: 6, sm: 6, lg: 10 },
         position: "relative",
         overflow: "hidden",
         background:
@@ -55,7 +56,7 @@ const HeroSection = () => {
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
         <Grid container spacing={4} sx={{ mt: 2 }}>
           {/* Left Text Content */}
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} lg={7}>
               <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -75,12 +76,12 @@ const HeroSection = () => {
                     px: { xs: 1.5, sm: 2 },
                     py: { xs: 0.4, sm: 0.5 },
                     borderRadius: "50px",
-                    fontSize: { xs: "0.72rem", sm: "0.82rem", md: "0.9rem" },
+                    fontSize: { xs: "0.82rem", sm: "0.92rem", md: "1rem" },
                     fontWeight: 600,
                     background: "rgba(60, 54, 187, 0.18)",
                     border: "0.5px solid rgb(22, 13, 91)",
                     color: "#C2C2FF",
-                    width: { xs: "225px", sm: "fit-content" },
+                    width: { xs: "235px", sm: "fit-content" },
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -98,6 +99,7 @@ const HeroSection = () => {
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
                       display: "inline-block",
+                      fontFamily: theme.typography.fontFamily
                     }}
                   >
                     AI-Powered Task Management
@@ -116,8 +118,8 @@ const HeroSection = () => {
                 variant="h2"
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
-                  textAlign: { xs: "center", sm: "left", md: "left" },
+                  fontSize: { xs: "2rem", sm: "2.5rem", lg: "3.5rem" },
+                  textAlign: { xs: "center", sm: "left", lg: "left" },
                   mb: 3,
                   background: "linear-gradient(90deg, #4E36FF, #FF6B6B)",
                   WebkitBackgroundClip: "text",
@@ -138,11 +140,11 @@ const HeroSection = () => {
                 color="white"
                 sx={{
                   fontWeight: "bold",
-                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  fontSize: { xs: "1rem", lg: "1.1rem" },
                   mb: 4,
                   opacity: 0.9,
-                  textAlign: { xs: "center", sm:"left", md: "left" },
-                  maxWidth: { xs: "100%", sm: "80%", md: "90%" },
+                  textAlign: { xs: "center", sm:"left", lg: "left" },
+                  maxWidth: { xs: "100%", sm: "80%", lg: "90%" },
                 }}
               >
                 Streamline your team’s productivity with Task Master — featuring
@@ -173,9 +175,9 @@ const HeroSection = () => {
                   color="primary"
                   size="large"
                   sx={{
-                    py: { xs: 1.1, sm: 1.2, md: 1.5 },
-                    px: { xs: 2.5, sm: 3.5, md: 4 },
-                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
+                    py: { xs: 1.1, sm: 1.2, lg: 1.5 },
+                    px: { xs: 2.5, sm: 3.5, lg: 4 },
+                    fontSize: { xs: "0.95rem", sm: "1rem", lg: "1.1rem" },
                     background: "linear-gradient(90deg, #4E36FF, #900BFF)",
                     color: "white",
                     borderRadius: "30px",
@@ -202,9 +204,9 @@ const HeroSection = () => {
                   color="primary"
                   size="large"
                   sx={{
-                    py: { xs: 1.1, sm: 1.2, md: 1.5 },
-                    px: { xs: 2.5, sm: 3.5, md: 4 },
-                    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
+                    py: { xs: 1.1, sm: 1.2, lg: 1.5 },
+                    px: { xs: 2.5, sm: 3.5, lg: 4 },
+                    fontSize: { xs: "0.95rem", sm: "1rem", lg: "1.1rem" },
                     color: "white",
                     borderRadius: "30px",
                     borderColor: "rgba(255,255,255,0.3)",
@@ -329,11 +331,11 @@ const HeroSection = () => {
           </Grid>
 
           {/* Right Image Content */}
-          <Grid item xs={12} md={5} sx={{
+          <Grid item xs={12} lg={5} sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            mt: { xs: 3, sm: 4, md: 0 },
+            mt: { xs: 2, sm: 3, lg: 0 }
           }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
