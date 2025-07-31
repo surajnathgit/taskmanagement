@@ -75,7 +75,7 @@ const WhoIsProductFor = () => {
               fontSize: { xs: "1.8rem", sm: "2.4rem", md: "2.75rem" }
             }}
           >
-            Who Is Our Product For?
+            Who Is Task Master For?
           </Typography>
 
           <Typography
